@@ -7,5 +7,7 @@ export const theme = createMuiTheme({
       dark:'#34314C'
     }
   },
-  drawerWidth:'240px'
+  drawerWidth:'240px',
+  tableHeight:'440px',
+  gutter:{pc:'64px',sp:'56px'}
 });

@@ -28,8 +28,17 @@ const StyledIconButton = styled(IconButton)`
     display: none;
   }
 `
+const AppName = styled.div`
+  display: flex;
+  align-items: center;
+  width:100%;
+  height:${props => props.theme.gutter.sp};
+  @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+    height:${props => props.theme.gutter.pc};
+  }
+`
 
-const Menu = styled.div`
+const DrawerArea = styled.div`
   width:${props => props.theme.drawerWidth};
   background:${props => props.theme.palette.primary.dark};
   height:100%;
@@ -86,14 +95,14 @@ export const AppFrame = (props) => {
           <Overlay onClick={handleMenu}>
           <StyledDrawer
             variant="permanent" open>
-            <Menu>{props.menus}</Menu>
+            <DrawerArea><AppName>{props.appLogo}</AppName>{props.menus}</DrawerArea>
           </StyledDrawer></Overlay>:null
         }
       </Hidden>
       <Hidden xsDown>
         <StyledDrawer
           variant="permanent" open>
-          <Menu>{props.menus}</Menu>
+          <DrawerArea><AppName>{props.appLogo}</AppName>{props.menus}</DrawerArea>
           </StyledDrawer>
       </Hidden>
       <Content>
