@@ -5,13 +5,13 @@ const TopPage = () => {
   return(
     <div>
       <FullPaper>
-        
+        full paper
       </FullPaper>
       <HalfPaper>
-        test
+        half paper
       </HalfPaper>
       <HalfPaper>
-        test
+        half paper
       </HalfPaper>
     </div>
   )
