@@ -58,11 +58,11 @@ const Overlay = styled.div`
   z-index:${props => props.theme.zIndex.drawer};
 `
 const Content = styled.div`
-  margin-top:calc(${props => props.theme.gutter.sp} + ${props => props.theme.spacing(2)}px);
+  padding-top:calc(${props => props.theme.gutter.sp} + ${props => props.theme.spacing(2)}px);
   @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
     max-width:calc(100% - ${props => props.theme.drawerWidth});
     margin-left: ${props => props.theme.drawerWidth};
-    margin-top:calc(${props => props.theme.gutter.pc} + ${props => props.theme.spacing(2)}px);
+    padding-top:calc(${props => props.theme.gutter.pc} + ${props => props.theme.spacing(2)}px);
   }
 `
 

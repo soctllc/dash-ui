@@ -11,17 +11,20 @@ import Typography from '@material-ui/core/Typography';
 
 export const DatePicker = (props) => {
     const title = props.title;
+    const value = props.value;
     const required = props.required? props.required : false;
+    const onChange = props.onChange ? props.onChange : ()=>{}; 
     return(
         <Div>
         <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <StyledPicker 
           margin="normal"
-          defaultValue="2017-05-24"
           id="date-picker-dialog"
           label="Date picker dialog"
-          format="MM/dd/yyyy"
+          format="yyy/MM/dd"
+          value={value}
+          onChange={onChange}
           KeyboardButtonProps={{
             'aria-label': 'change date',
           }}

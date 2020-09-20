@@ -1,9 +1,15 @@
 import React from 'react';
 import {Form} from '../molecules/Form'
-import {items} from '../../demo/selectData'
+import {PageTitle} from '../atoms/Title';
+
 
 const FormPage = () => {
-  return(<Form items={items}/>);
+  return(
+    <div>
+        <PageTitle>フォーム</PageTitle>
+        <Form />
+    </div>
+    );
 }
 
 export default FormPage;

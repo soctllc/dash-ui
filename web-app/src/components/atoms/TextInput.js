@@ -7,16 +7,18 @@ import Typography from '@material-ui/core/Typography';
 export const SingleTextInput = (props) => {
     const title = props.title;
     const label = props.label;
+    const value = props.value;
     const required = props.required? props.required : false;
-    const onChange = props.onChagne ? props.onChange : ()=>{}; 
+    const onChange = props.onChange ? props.onChange : ()=>{}; 
     return(
         <Div>
             <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
             <Field
-                id="outlined-basic"
+               
                 label={label}
                 variant="outlined"
-                onChange={(e)=>onChange(e)}
+                value={value}
+                onChange={onChange}
             />
         </Div>
     );
@@ -26,18 +28,20 @@ export const MultiLineTextInput = (props) => {
     const title = props.title;
     const rows = props.rows ? props.rows : 5;
     const label = props.label;
+    const value = props.value;
     const required = props.required? props.required : false;
-    const onChange = props.onChagne ? props.onChange : ()=>{}; 
+    const onChange = props.onChange ? props.onChange : ()=>{}; 
     return(
         <Div>
             <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
             <Field
                 multiline
                 rows={rows}
-                id="outlined-basic"
+                
                 label={label}
+                value={value}
                 variant="outlined"
-                onChange={(e)=>onChange(e)}
+                onChange={onChange}
             />
         </Div>
     );
