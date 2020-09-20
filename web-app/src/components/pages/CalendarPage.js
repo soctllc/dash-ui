@@ -1,11 +1,11 @@
 import React from 'react';
 import {BasicCalendar} from '../molecules/Calendar';
-import eventData from '../../demo/eventData';
+import {events} from '../../demo/eventData';
 
 const CalendarPage = () => {
   return(
     <div>
-      <BasicCalendar events={eventData}/>
+      <BasicCalendar events={events}/>
     </div>
   )
 };
