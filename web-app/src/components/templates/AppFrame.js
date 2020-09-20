@@ -55,17 +55,20 @@ const Overlay = styled.div`
   top:0;
   width:100vw;
   height:100vh;
+  z-index:${props => props.theme.zIndex.drawer};
 `
 const Content = styled.div`
+  margin-top:calc(${props => props.theme.gutter.sp} + ${props => props.theme.spacing(2)}px);
   @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
     max-width:calc(100% - ${props => props.theme.drawerWidth});
     margin-left: ${props => props.theme.drawerWidth};
+    margin-top:calc(${props => props.theme.gutter.pc} + ${props => props.theme.spacing(2)}px);
   }
 `
 
 const SimpleAppBar = (props) => {
   return(
-    <StyledAppBar position="static" color="inherit">
+    <StyledAppBar color="inherit">
      <Toolbar>
       <StyledIconButton
         onClick={()=>props.handleMenu()}

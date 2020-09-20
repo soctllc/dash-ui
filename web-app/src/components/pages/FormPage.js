@@ -1,7 +1,9 @@
 import React from 'react';
+import {Form} from '../molecules/Form'
+import {items} from '../../demo/selectData'
 
 const FormPage = () => {
-  return(null);
+  return(<Form items={items}/>);
 }
 
 export default FormPage;
