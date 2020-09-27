@@ -7,6 +7,7 @@ import {RadioInput}from '../atoms/RadioInput'
 import {items,methods} from '../../demo/selectData'
 import {checkData} from '../../demo/checkData'
 import {CheckInput}from '../atoms/CheckInput';
+import {BasicButton} from '../atoms/Button';
 
 export const Form = (props) => {
     const [name,setName] = useState('ねーむ');
@@ -14,11 +15,12 @@ export const Form = (props) => {
     const [age,setAge] = useState(10);
     const [method,setMethod] = useState('自動');
     const [checks,setChecks] = useState(checkData);
+    const [disabled,setDisabled] = useState(false);
 
     const handleCheck = (index) => {
         const checkedItem = checks[index];
         const newChecks = checks.slice();
-        checkedItem.checked = checkedItem.checked ? false : true;
+        checkedItem.checked = !checkedItem.checked;
         newChecks[index] = checkedItem;
         setChecks(newChecks);
     }
@@ -71,6 +73,9 @@ export const Form = (props) => {
                 items={checks}
                 onChange={(index) => {handleCheck(index)}}
             />
+            <BasicButton disabled={disabled} onClick={() => setDisabled(!disabled)}>
+                確定する
+            </BasicButton>
         </FullPaper>
     );
 }
