@@ -7,7 +7,7 @@ import {RadioInput}from '../atoms/RadioInput'
 import {items,methods} from '../../demo/selectData'
 import {checkData} from '../../demo/checkData'
 import {CheckInput}from '../atoms/CheckInput';
-import {BasicButton} from '../atoms/Button';
+import {BasicButton,UploadButton} from '../atoms/Button';
 
 export const Form = (props) => {
     const [name,setName] = useState('ねーむ');
@@ -73,9 +73,14 @@ export const Form = (props) => {
                 items={checks}
                 onChange={(index) => {handleCheck(index)}}
             />
+            <UploadButton
+                title="本人確認書類" 
+                disabled={disabled} onClick={() => setDisabled(!disabled)}>
+                資料をアップロードしてください
+            </UploadButton>
             <BasicButton disabled={disabled} onClick={() => setDisabled(!disabled)}>
                 確定する
-            </BasicButton>
+            </BasicButton><br/>
         </FullPaper>
     );
 }
