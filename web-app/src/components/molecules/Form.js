@@ -5,13 +5,24 @@ import {SelectInput}from '../atoms/SelectInput'
 import {DatePicker}from '../atoms/DatePicker'
 import {RadioInput}from '../atoms/RadioInput'
 import {items,methods} from '../../demo/selectData'
-
+import {checkData} from '../../demo/checkData'
+import {CheckInput}from '../atoms/CheckInput';
 
 export const Form = (props) => {
     const [name,setName] = useState('ねーむ');
     const [date,setDate] = useState('2020/9/1');
     const [age,setAge] = useState(10);
     const [method,setMethod] = useState('自動');
+    const [checks,setChecks] = useState(checkData);
+
+    const handleCheck = (index) => {
+        const checkedItem = checks[index];
+        const newChecks = checks.slice();
+        checkedItem.checked = checkedItem.checked ? false : true;
+        newChecks[index] = checkedItem;
+        setChecks(newChecks);
+    }
+
     return(
         <FullPaper>
             <SingleTextInput
@@ -53,6 +64,12 @@ export const Form = (props) => {
                 items={methods}
                 onChange={(e)=>{setMethod(e.target.value)}}
                 value={method}
+            />
+            <CheckInput
+                title="利用規約"
+                label="規約に同意する"
+                items={checks}
+                onChange={(index) => {handleCheck(index)}}
             />
         </FullPaper>
     );
