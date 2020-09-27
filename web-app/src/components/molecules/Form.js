@@ -8,6 +8,7 @@ import {items,methods} from '../../demo/selectData'
 import {checkData} from '../../demo/checkData'
 import {CheckInput}from '../atoms/CheckInput';
 import {BasicButton,UploadButton} from '../atoms/Button';
+import {EditableAvatar} from  '../atoms/Avatar';
 
 export const Form = (props) => {
     const [name,setName] = useState('ねーむ');
@@ -16,6 +17,7 @@ export const Form = (props) => {
     const [method,setMethod] = useState('自動');
     const [checks,setChecks] = useState(checkData);
     const [disabled,setDisabled] = useState(false);
+    const [loading,setLoading] = useState(false);
 
     const handleCheck = (index) => {
         const checkedItem = checks[index];
@@ -27,6 +29,11 @@ export const Form = (props) => {
 
     return(
         <FullPaper>
+            <EditableAvatar
+                title="プロフィール写真"
+                loading={loading}
+                onClick={()=>{setLoading(!loading)}}
+            />
             <SingleTextInput
                 title="代表者氏名"
                 label="氏名を入力してください"
