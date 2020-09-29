@@ -3,8 +3,23 @@ import Avatar from '@material-ui/core/Avatar';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import styled from 'styled-components';
-import { BasicButton } from './Button';
 import Typography from '@material-ui/core/Typography';
+import {BodyText,BodyTitle,Caption} from '../atoms/Text'
+
+export const NamedAvatar = (props) => {
+    const name = props.name;
+    const caption = props.caption;
+    const avatar = props.avatar;
+    const onClick = props.onClick ? props.onClick : ()=>{};
+    return(
+        <RowWrap>
+            <CircledAvatar src={avatar} onClick={onClick}/>  
+            <NameWrap>
+                <Name>{name}</Name>
+                <Caption>{caption}</Caption>
+            </NameWrap>
+        </RowWrap>);
+}
 
 export const EditableAvatar = (props) => {
     const title = props.title;
@@ -17,13 +32,32 @@ export const EditableAvatar = (props) => {
     return(
         <Div>
             <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
-            <StyledAvatar variant="rounded" src={avatar} onClick={onClick}>
+            <RoundedAvatar variant="rounded" src={avatar} onClick={onClick}>
                 {loading ? <CircularProgress/> :<AddAPhotoIcon/>}
-            </StyledAvatar>
+            </RoundedAvatar>
         </Div>
     );
 }
 
+const RowWrap = styled.div`
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    align-items: center;
+`
+
+const NameWrap = styled.div`
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction:column;
+`;
+
+const Name = styled(Typography).attrs({
+    variant:'body1',
+})`
+    margin:${props => props.theme.spacing(1)}px ${props => props.theme.spacing(2)}px 0;
+    font-weight:700;
+`
 const Div = styled.div`
     display:flex;
     flex-wrap: wrap;
@@ -47,7 +81,11 @@ const Title = styled(Typography)`
     }
 `
 
-const StyledAvatar = styled(Avatar)`
+const CircledAvatar = styled(Avatar)`
+    margin:${props => props.theme.spacing(1)}px;
+`;
+
+const RoundedAvatar = styled(Avatar)`
     margin:${props => props.theme.spacing(2)}px;
     height: 80px;
     width: 80px;

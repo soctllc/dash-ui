@@ -14,6 +14,13 @@ export const BasicButton = (props) => {
     )
 }
 
+export const SmallButton = styled(Button).attrs({
+    variant:"outlined",
+    color:"primary"
+})`
+    margin:${props => props.theme.spacing(0.5)}px;
+`;
+
 export const UploadButton = (props) => {
     const title = props.title;
     const required = props.required? props.required : false;

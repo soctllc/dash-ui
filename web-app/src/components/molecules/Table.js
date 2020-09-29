@@ -65,6 +65,7 @@ export const FixedTable = (props) => {
         page={page}
         onChangePage={handleChangePage}
         onChangeRowsPerPage={handleChangeRowsPerPage}
+        labelRowsPerPage="表示件数"
       />
     </FullPaper>
   );

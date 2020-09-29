@@ -8,6 +8,7 @@ import TablePage from './TablePage'
 import CalendarPage from './CalendarPage'
 import FormPage from './FormPage'
 import DataPage from './DataPage'
+import CardPage from './CardPage';
 
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import TableChartIcon from '@material-ui/icons/TableChart';
@@ -20,7 +21,8 @@ const pages = [
   { path: '/table', component: <TablePage/> },
   { path: '/calendar', component: <CalendarPage/> },
   { path: '/form', component: <FormPage/> },
-  { path: '/data', component: <DataPage/> }
+  { path: '/data', component: <DataPage/> },
+  { path: '/card', component: <CardPage/> }
 ];
 
 const menus = [
@@ -28,7 +30,8 @@ const menus = [
   { path: '/table', icon: <TableChartIcon/>,text:'テーブル'},
   { path: '/calendar', icon: <CalendarTodayIcon/>,text:'カレンダー'},
   { path: '/form', icon: <CreateIcon/>,text:'フォーム'},
-  { path: '/data', icon: <BarChartIcon/>,text:'データ'}
+  { path: '/data', icon: <BarChartIcon/>,text:'データ'},
+  { path: '/card', icon: <BarChartIcon/>,text:'カード'}
 ]
 
 const Pages = ()=>{
