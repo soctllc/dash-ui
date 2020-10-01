@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {FullPaper} from '../atoms/Paper'
+import {FullPaper,HalfPaper} from '../atoms/Paper'
 import {SingleTextInput,MultiLineTextInput} from '../atoms/TextInput'
 import {SelectInput}from '../atoms/SelectInput'
 import {DatePicker}from '../atoms/DatePicker'
@@ -9,6 +9,7 @@ import {checkData} from '../../demo/checkData'
 import {CheckInput}from '../atoms/CheckInput';
 import {BasicButton,UploadButton} from '../atoms/Button';
 import {EditableAvatar} from  '../atoms/Avatar';
+import {BodyText} from '../atoms/Text';
 
 export const Form = (props) => {
     const [name,setName] = useState('ねーむ');
