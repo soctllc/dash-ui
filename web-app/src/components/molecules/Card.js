@@ -7,12 +7,15 @@ import IconButton from '@material-ui/core/IconButton';
 import styled from "styled-components"
 
 export const UserCard = (props) => {
+    const name = props.name;
+    const caption = props.caption;
+    const avatar = props.avatar;
     const icons = props.icons ? props.icons : [];
     const onClick = props.onClick ? props.onClick : ()=>{};
     return(
        <HalfPaper>
         <Div>
-            <NamedAvatar name={props.name} caption={props.caption}/>
+            <NamedAvatar avatar={avatar} name={name} caption={caption}/>
         </Div>
         <Hr/>
         <ButtonWrap>
