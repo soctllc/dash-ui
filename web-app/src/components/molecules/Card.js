@@ -13,7 +13,7 @@ export const UserCard = (props) => {
     const icons = props.icons ? props.icons : [];
     const onClick = props.onClick ? props.onClick : ()=>{};
     return(
-       <HalfPaper>
+       <Card>
         <Div>
             <NamedAvatar avatar={avatar} name={name} caption={caption}/>
         </Div>
@@ -26,9 +26,15 @@ export const UserCard = (props) => {
             </Icons>
             <SmallButton onClick={onClick}>Edit</SmallButton>
         </ButtonWrap>    
-       </HalfPaper>
+       </Card>
     );
 };
+
+const Card = styled(HalfPaper)`
+    @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+        width:350px;
+    }
+`
 
 const Div = styled.div`
     display:flex;
