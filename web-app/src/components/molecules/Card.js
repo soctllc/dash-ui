@@ -8,6 +8,7 @@ import styled from "styled-components"
 
 export const UserCard = (props) => {
     const icons = props.icons ? props.icons : [];
+    const onClick = props.onClick ? props.onClick : ()=>{};
     return(
        <HalfPaper>
         <Div>
@@ -20,7 +21,7 @@ export const UserCard = (props) => {
                     <IconButton href={item.href}>{item.icon}</IconButton>
              ))}
             </Icons>
-            <SmallButton>Edit</SmallButton>
+            <SmallButton onClick={onClick}>Edit</SmallButton>
         </ButtonWrap>    
        </HalfPaper>
     );
