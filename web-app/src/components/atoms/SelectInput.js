@@ -1,15 +1,12 @@
 import React from 'react';
 import Select from '@material-ui/core/Select';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import styled from "styled-components"
 import Typography from '@material-ui/core/Typography';
 
 export const SelectInput = (props) => {
     const title = props.title;
-    const label = props.label;
     const value = props.value;
     const required = props.required? props.required : false;
     const items = props.items? props.items : [];

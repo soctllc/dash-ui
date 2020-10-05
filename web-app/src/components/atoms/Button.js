@@ -29,7 +29,7 @@ export const UploadButton = (props) => {
     return(
         <Div>
         <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
-        <UpButton Button startIcon={<CloudUploadIcon />} variant="outlined" color="primary" disabled={disabled} onClick={onClick}>
+        <UpButton startIcon={<CloudUploadIcon />} variant="outlined" color="primary" disabled={disabled} onClick={onClick}>
             {props.children}
         </UpButton>
         </Div>

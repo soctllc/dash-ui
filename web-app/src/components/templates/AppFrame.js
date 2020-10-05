@@ -82,7 +82,6 @@ const SimpleAppBar = (props) => {
 }
 
 export const AppFrame = (props) => {
-  const { container } = props;
   const [open, setOpen] = React.useState(false);
   const handleMenu = () => {
    setOpen(!open);

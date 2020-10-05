@@ -4,7 +4,7 @@ import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
-import {BodyText,BodyTitle,Caption} from '../atoms/Text'
+import {Caption} from '../atoms/Text'
 
 export const NamedAvatar = (props) => {
     const name = props.name;
@@ -23,8 +23,6 @@ export const NamedAvatar = (props) => {
 
 export const EditableAvatar = (props) => {
     const title = props.title;
-    const label = props.label;
-    const value = props.value;
     const avatar = props.avatar;
     const required = props.required? props.required : false;
     const loading = props.loading ? props.loading : false;

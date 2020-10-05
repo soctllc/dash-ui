@@ -1,6 +1,5 @@
 import React from 'react';
 import {HalfPaper} from '../atoms/Paper'
-import {BodyTitle,BodyText,Caption} from '../atoms/Text'
 import {NamedAvatar} from '../atoms/Avatar'
 import { SmallButton } from '../atoms/Button';
 import IconButton from '@material-ui/core/IconButton';

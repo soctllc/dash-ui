@@ -11,7 +11,6 @@ import Typography from '@material-ui/core/Typography';
 export const RadioInput = (props) => {
     const title = props.title;
     const label = props.label;
-    const value = props.value;
     const required = props.required? props.required : false;
     const items = props.items? props.items : [];
     const onChange = props.onChange ? props.onChange : ()=>{}; 
