@@ -5,6 +5,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import {BodyText as Text} from '../atoms/Text'
 
+
 export const VerticalStepper = (props) => {
     const activeStep = props.activeStep;
     const steps = props.steps ? props.steps : [];
