@@ -20,7 +20,7 @@ export const UserCard = (props) => {
         <ButtonWrap>
             <Icons>
                 {icons.map((item,index) => (
-                    <IconButton href={item.href}>{item.icon}</IconButton>
+                    <IconButton key={index} href={item.href}>{item.icon}</IconButton>
              ))}
             </Icons>
             <SmallButton onClick={onClick}>Edit</SmallButton>
