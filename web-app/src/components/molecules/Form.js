@@ -3,8 +3,8 @@ import {FullPaper} from '../atoms/Paper'
 import {SingleTextInput,MultiLineTextInput} from '../atoms/TextInput'
 import {SelectInput}from '../atoms/SelectInput'
 import {DatePicker}from '../atoms/DatePicker'
-import {RadioInput}from '../atoms/RadioInput'
-import {items,methods} from '../../demo/selectData'
+import {RadioInput,RadioImages}from '../atoms/RadioInput'
+import {items,methods,images} from '../../demo/selectData'
 import {checkData} from '../../demo/checkData'
 import {CheckInput}from '../atoms/CheckInput';
 import {BasicButton,UploadButton} from '../atoms/Button';
@@ -15,6 +15,7 @@ export const Form = (props) => {
     const [date,setDate] = useState('2020/9/1');
     const [age,setAge] = useState(10);
     const [method,setMethod] = useState('自動');
+    const [src,setSrc] = useState('');
     const [checks,setChecks] = useState(checkData);
     const [disabled,setDisabled] = useState(false);
     const [loading,setLoading] = useState(false);
@@ -73,6 +74,13 @@ export const Form = (props) => {
                 items={methods}
                 onChange={(e)=>{setMethod(e.target.value)}}
                 value={method}
+            />
+            <RadioImages
+                title="画像選択"
+                label="画像を選択してください"
+                items={images}
+                onChange={(e)=>{setSrc(e.target.value)}}
+                value={src}
             />
             <CheckInput
                 title="利用規約"

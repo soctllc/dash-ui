@@ -29,6 +29,27 @@ export const RadioInput = (props) => {
     )
 }
 
+export const RadioImages = (props) => {
+    const title = props.title;
+    const label = props.label;
+    const required = props.required? props.required : false;
+    const items = props.items? props.items : [];
+    const onChange = props.onChange ? props.onChange : ()=>{}; 
+    return(
+        <Div>
+            <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
+            <StyledForm component="fieldset">
+                <FormLabel component="legend">{label}</FormLabel>
+                <StyledGroup value={props.value} onChange={onChange}>
+                    {items.map((item,index) => (
+                        <FormControlLabel key={index} value={item.src} control={<Radio icon={<Img src={item.src} />} checkedIcon={<Img data-checked={true} src={item.src} />}/>}/>
+                    ))}
+                </StyledGroup>
+      </StyledForm>
+      </Div>
+    )
+}
+
 const StyledForm = styled(FormControl)`
     margin:${props => props.theme.spacing(2)}px;
     width:375px;
@@ -54,3 +75,20 @@ const Title = styled(Typography)`
         }
     }
 `
+
+const Img = styled.img`
+    height:80px;
+    width:auto;
+    backgroun-image;
+    &[data-checked="true"] {
+        border:solid 3px ${props => props.theme.palette.primary.light};
+        height:74px;
+        border-radius:8px;
+    }
+`
+
+const StyledGroup = styled(RadioGroup)`
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+`;
