@@ -8,12 +8,16 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import {FullPaper} from '../atoms/Paper'
 import styled from "styled-components"
+import TableSortLabel from '@material-ui/core/TableSortLabel';
+import {sortObjects} from '../../utils/sortObjects';
 
 export const FixedTable = (props) => {
   const columns = props.columns;
   const rows = props.rows ? props.rows :[];
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [orderBy,setOrderBy] = useState('');
+  const [order,setOrder] = useState('asc');
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -22,7 +26,12 @@ export const FixedTable = (props) => {
     setRowsPerPage(event.target.value);
     setPage(0);
   };
-
+  const handleSort = (id) => {
+    const newOrder = order === 'asc' ? 'desc' : 'asc';
+    setOrderBy(id);
+    setOrder(newOrder);
+    sortObjects(rows,id,newOrder);
+  }
   return(
     <FullPaper>
       <Container>
@@ -35,7 +44,12 @@ export const FixedTable = (props) => {
               align={column.align}
               style={{ minWidth: column.minWidth }}
             >
-              {column.label}
+              <TableSortLabel
+                active={orderBy === column.id}
+                direction={orderBy === column.id ? order : 'asc'}
+                onClick={() => handleSort(column.id)}
+              >{column.label}</TableSortLabel>
+              
             </TableCell>
           ))}
         </TableRow>
