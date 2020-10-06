@@ -4,13 +4,13 @@ import {columns,rows} from '../../demo/tableData'
 import {PageTitle} from '../atoms/Title';
 import {filterObjects} from '../../utils/filterObjects'
 
-const filters = [
+const dummyFilters = [
   {id:'name',values:['India','Japan']},
   {id:'name',values:['India','Japan']}
 ];
 
 const TablePage = () => {
-  const [page, setPage] = useState(0);
+  const [filters, setFilters] = useState(dummyFilters);
   return(
     <div>
       <PageTitle>テーブル</PageTitle>
