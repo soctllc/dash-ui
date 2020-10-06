@@ -12,19 +12,26 @@ export const MenuList = (props) => {
   return(
      <List component="nav" aria-label="main mailbox folders">
       {menus.map((item,index) => (
-        <ListItem onClick={()=> history.push(item.path)} key={index} button>
+        <StyledItem onClick={()=> history.push(item.path)} key={index} button>
          <Icon>
            {item.icon}
          </Icon>
          <Text primary={item.text} />
-       </ListItem>
+       </StyledItem>
       ))}
      </List>
   )
 }
 
+const StyledItem = styled(ListItem)`
+`;
+
 const Text = styled(ListItemText)`
   color:white;
+  > * {
+    font-size:14px;
+    font-weight:bold;
+  }
 `
 
 const Icon = styled(ListItemIcon)`

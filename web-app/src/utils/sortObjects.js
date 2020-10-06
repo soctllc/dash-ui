@@ -1,4 +1,4 @@
-export const sortObjects = async (data,key,order) => {
+export const sortObjects = (data,key,order) => {
     //デフォは降順(DESC)
     var num_a = -1;
     var num_b = 1;
