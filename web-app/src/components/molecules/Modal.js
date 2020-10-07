@@ -45,7 +45,10 @@ const Overlay = styled.div`
 const Paper = styled(HalfPaper)`
   margin:0 auto;
   animation: ${open} 0.4s ease-in-out;
-  max-height:calc(100vh - ${props => props.theme.gutter.pc} * 2 + ${props => props.theme.spacing(2)}px);
+  max-height:calc(100vh - ${props => props.theme.gutter.sp} * 2 );
+  @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+    max-height:calc(100vh - ${props => props.theme.gutter.pc} * 2 );
+  }
 `;
 
 const Header = styled.div`
@@ -58,6 +61,16 @@ const Header = styled.div`
     height:${props => props.theme.gutter.pc};
   }
 `
+
+const Content = styled.div`
+  width:100%;
+  height:auto;
+  overflow:scroll;
+  max-height:calc(100vh - ${props => props.theme.gutter.sp} * 2);
+  @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+    max-height:calc(100vh - ${props => props.theme.gutter.pc} * 3);
+  }
+`;
 
 export const Modal = (props) => {
     const onClose = props.onClose ? props.onClose : ()=>{};
@@ -74,7 +87,7 @@ export const Modal = (props) => {
                     <CloseIcon />
                   </IconButton>
                 </Header>
-                    {props.children}
+                    <Content>{props.children}</Content>
                 </Paper>
             </Overlay>
         </>
