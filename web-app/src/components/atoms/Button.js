@@ -36,6 +36,22 @@ export const UploadButton = (props) => {
     )
 }
 
+export const IconButton = (props) => {
+    const title = props.title;
+    const icon = props.icon;
+    const required = props.required? props.required : false;
+    const disabled = props.disabled ? props.disabled : false;
+    const onClick = props.onClick ? props.onClick : ()=>{};
+    return(
+        <Div>
+        <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
+        <UpButton startIcon={icon} variant="outlined" color="primary" disabled={disabled} onClick={onClick}>
+            {props.children}
+        </UpButton>
+        </Div>
+    )
+}
+
 
 const StyledButton = styled(Button)`
     width:calc(100% - ${props => props.theme.spacing(4)}px * 2);
