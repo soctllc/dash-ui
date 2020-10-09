@@ -79,7 +79,7 @@ const Title = styled(Typography)`
     }
 `
 
-const CircledAvatar = styled(Avatar)`
+export const CircledAvatar = styled(Avatar)`
     margin:${props => props.theme.spacing(1)}px;
 `;
 

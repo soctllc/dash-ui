@@ -66,6 +66,12 @@ const Content = styled.div`
   }
 `
 
+const BarContents = styled(Toolbar)`
+  display:flex;
+  justify-content: flex-end;
+  width:100%;
+`;
+
 const SimpleAppBar = (props) => {
   return(
     <StyledAppBar color="inherit">
@@ -75,7 +81,7 @@ const SimpleAppBar = (props) => {
         edge="start" color="inherit" aria-label="menu">
         <MenuIcon/>
       </StyledIconButton>
-        {props.children}
+        <BarContents>{props.children}</BarContents>
      </Toolbar>
     </StyledAppBar>
   )
@@ -91,7 +97,7 @@ export const AppFrame = (props) => {
     <>
       <SimpleAppBar
         handleMenu={handleMenu}
-        title={props.title}/>
+        title={props.title}>{props.iconMenu}</SimpleAppBar>
       <Hidden smUp>
         {open?
           <Overlay onClick={handleMenu}>

@@ -1,4 +1,6 @@
 import React from 'react';
+import IconButton from '@material-ui/core/IconButton';
+import {CircledAvatar} from '../atoms/Avatar'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -42,6 +44,51 @@ export const FloatingMenu = (props) => {
     </Card>
   );
 }
+
+export const IconMenu = (props) => {
+  const src = props.src;
+  const menus = props.menus ? props.menus : [];
+  const onClick = props.onClick ? props.onClick : ()=>{};
+  const [open, setOpen] = React.useState(false);
+  const handleMenu = () => {
+   setOpen(!open);
+ };
+  return(
+    <>
+      <CircledAvatar src={src} onClick={()=>{handleMenu()}}/>
+      {open?
+      <MyCard>
+      <List component="nav" aria-label="main mailbox folders">
+      {menus.map((item,index) => (
+        <StyledItem onClick={() => onClick(index)} key={index} button>
+         <ListItemIcon>
+           {item.icon}
+         </ListItemIcon>
+         <BoldText primary={item.text} />
+       </StyledItem>
+      ))}
+     </List>
+    </MyCard>
+    :null}
+    </>
+  );
+}
+
+const MyCard = styled(HalfPaper)`
+  position:absolute;
+  top:${props => props.theme.gutter.sp};
+  width:${props => props.theme.drawerWidth};
+  @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+    top:${props => props.theme.gutter.pc};
+  }
+`
+
+const BoldText = styled(ListItemText)`
+  > * {
+    font-size:14px;
+    font-weight:bold;
+  }
+`
 
 const Card = styled(HalfPaper)`
     position:fixed;

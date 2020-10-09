@@ -18,9 +18,9 @@ export const HeadlessTable = (props) => {
       <Container>
       <Table >
         <TableBody>
-            {rows.map((row) => {
+            {rows.map((row,index) => {
               return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.title}>
+                <TableRow hover role="checkbox" tabIndex={-1} key={index}>
                     <Title>
                       {row.title}
                     </Title>
