@@ -46,3 +46,9 @@ export const rows = [
   createData('Nigeria', 'NG', 200962417, 923768),
   createData('Brazil', 'BR', 210147125, 8515767),
 ];
+
+export const viewData = [
+  {title:"ほげ",value:"ふがほげほげほげほgへおげほえほgへおははははははははははははははははhgへおhごえhごえほgへおgへおhごえほほほほほほほほほほほ"},
+  {title:"ほげ",value:"ふが"},
+  {title:"ほげ",value:"ふが"}
+];

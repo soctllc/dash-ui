@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
-import {FixedTable as Table} from '../molecules/Table'
-import {columns,rows} from '../../demo/tableData'
+import {FixedTable as Table,HeadlessTable} from '../molecules/Table'
+import {columns,rows,viewData} from '../../demo/tableData'
 import {PageTitle} from '../atoms/Title';
 import {filterObjects} from '../../utils/filterObjects'
 
@@ -15,6 +15,7 @@ const TablePage = () => {
     <div>
       <PageTitle>テーブル</PageTitle>
       <Table columns={columns} rows={filterObjects(rows,filters)}/>
+      <HeadlessTable rows={viewData}/>
     </div>
   )
 };

@@ -7,7 +7,7 @@ import {BodyTitle} from '../atoms/Text'
 
 const open = keyframes`
     0% {
-      width:0;
+      width:0px;
     }
     100% {
       width:calc( 100% - ${props => props.theme.spacing(3)}px * 2);

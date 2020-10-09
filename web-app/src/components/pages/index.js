@@ -8,6 +8,7 @@ import TableChartIcon from '@material-ui/icons/TableChart';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import CreateIcon from '@material-ui/icons/Create';
 import BarChartIcon from '@material-ui/icons/BarChart';
+import ContactMailIcon from '@material-ui/icons/ContactMail';
 //import TopPage from './TopPage'
 //import TablePage from './TablePage'
 //import CalendarPage from './CalendarPage'
@@ -36,7 +37,7 @@ const menus = [
   { path: '/calendar', icon: <CalendarTodayIcon/>,text:'カレンダー'},
   { path: '/form', icon: <CreateIcon/>,text:'フォーム'},
   { path: '/data', icon: <BarChartIcon/>,text:'データ'},
-  { path: '/card', icon: <BarChartIcon/>,text:'カード'}
+  { path: '/card', icon: <ContactMailIcon/>,text:'カード'}
 ]
 
 const Pages = ()=>{

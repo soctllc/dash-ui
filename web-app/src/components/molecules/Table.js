@@ -6,10 +6,43 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import {FullPaper} from '../atoms/Paper'
+import {FullPaper,HalfPaper} from '../atoms/Paper'
 import styled from "styled-components"
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import {sortObjects} from '../../utils/sortObjects';
+
+export const HeadlessTable = (props) => {
+  const rows = props.rows ? props.rows :[];
+  return(
+    <HalfPaper>
+      <Container>
+      <Table >
+        <TableBody>
+            {rows.map((row) => {
+              return (
+                <TableRow hover role="checkbox" tabIndex={-1} key={row.title}>
+                    <Title>
+                      {row.title}
+                    </Title>
+                    <TableCell>
+                      {row.value}
+                    </TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+      </Table>
+      </Container>
+    </HalfPaper>
+  );
+}
+
+const Title = styled(TableCell)`
+  margin:${props => props.theme.spacing(4)}px ${props => props.theme.spacing(2)}px 0;
+  font-weight:700;
+  width:calc(240px - ${props => props.theme.spacing(2)}px * 3);　
+  vertical-align:baseline;
+`
 
 export const FixedTable = (props) => {
   const columns = props.columns;
