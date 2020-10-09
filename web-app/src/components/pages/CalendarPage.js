@@ -10,6 +10,12 @@ const menus = [
   { path: '/', icon: <DashboardIcon/>,text:'ダッシュボード'},
   { path: '/table', icon: <TableChartIcon/>,text:'テーブル'},
 ]
+const handleSelect = (info) => {
+  console.log(info);
+}
+const handleEventClick = (info) => {
+  console.log(info);
+}
 
 const CalendarPage = () => {
   const handleClick = (index) => {
@@ -18,7 +24,7 @@ const CalendarPage = () => {
   return(
     <div>
       <PageTitle>カレンダー</PageTitle>
-      <BasicCalendar events={events}/>
+      <BasicCalendar events={events} onSelect={(info) => handleSelect(info)} onEventClick={(info) => handleEventClick(info)}/>
       <FloatingMenu onClick={(index) => {handleClick(index)}} menus={menus}/>
     </div>
   )

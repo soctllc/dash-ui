@@ -8,6 +8,9 @@ import interactionPlugin from "@fullcalendar/interaction";
 
 export const BasicCalendar = (props) => {
   const events = props.events ? props.events : [];
+  const onSelect = props.onSelect ? props.onSelect : ()=>{};
+  const onEventClick = props.onEventClick ? props.onEventClick : ()=>{};
+
   return (
     <Div>
       <FullCalendar
@@ -35,6 +38,8 @@ export const BasicCalendar = (props) => {
         endTime: "24:00",
       }}
       weekends={true}
+      select={onSelect} // カレンダー範囲選択時
+      eventClick={onEventClick} // イベントクリック時
      />
     </Div>
   )
