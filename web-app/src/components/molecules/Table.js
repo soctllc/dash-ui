@@ -15,7 +15,7 @@ export const HeadlessTable = (props) => {
   const rows = props.rows ? props.rows :[];
   return(
   
-      <Container>
+      
       <Table >
         <TableBody>
             {rows.map((row,index) => {
@@ -32,7 +32,7 @@ export const HeadlessTable = (props) => {
             })}
           </TableBody>
       </Table>
-      </Container>
+      
    
   );
 }
