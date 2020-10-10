@@ -9,6 +9,9 @@ import {checkData} from '../../demo/checkData'
 import {CheckInput}from '../atoms/CheckInput';
 import {BasicButton,UploadButton} from '../atoms/Button';
 import {EditableAvatar} from  '../atoms/Avatar';
+import {Img} from '../atoms/Img';
+
+const testImg = "https://support.apple.com/library/content/dam/edam/applecare/images/en_US/gifting/giftcardscertificates/gift-cards-app-store-itunes.png";
 
 export const Form = (props) => {
     const [name,setName] = useState('ねーむ');
@@ -93,9 +96,11 @@ export const Form = (props) => {
                 disabled={disabled} onClick={() => setDisabled(!disabled)}>
                 資料をアップロードしてください
             </UploadButton>
+           
             <BasicButton disabled={disabled} onClick={() => setDisabled(!disabled)}>
                 確定する
             </BasicButton><br/>
+            <Img src={testImg} />
         </FullPaper>
     );
 }
