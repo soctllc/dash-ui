@@ -6,6 +6,8 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import {Modal} from '../molecules/Modal'
+import {HeadlessTable} from '../molecules/Table'
+import {viewData} from '../../demo/tableData'
 
 const dammy_1 = [
     {icon:<FacebookIcon/>,href:"https://google.co.jp"},
@@ -21,7 +23,7 @@ const CardPage = () => {
     const modalTitle = "タイトルは任意"
   return(
     <div>
-        {open?<Modal title={modalTitle} onClose={()=> setOpen(false)}><UserCard/></Modal>:null}
+        {open?<Modal title={modalTitle} onClose={()=> setOpen(false)}><HeadlessTable rows={viewData}/></Modal>:null}
         <PageTitle>データ</PageTitle>
         <FlexWrap>
             <UserCard

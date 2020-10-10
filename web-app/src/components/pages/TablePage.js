@@ -3,6 +3,7 @@ import {FixedTable as Table,HeadlessTable} from '../molecules/Table'
 import {columns,rows,viewData} from '../../demo/tableData'
 import {PageTitle} from '../atoms/Title';
 import {filterObjects} from '../../utils/filterObjects'
+import {HalfPaper} from '../atoms/Paper'
 
 const dummyFilters = [
   {id:'name',values:['India','Japan']},
@@ -15,7 +16,7 @@ const TablePage = () => {
     <div>
       <PageTitle>テーブル</PageTitle>
       <Table columns={columns} rows={filterObjects(rows,filters)}/>
-      <HeadlessTable rows={viewData}/>
+      <HalfPaper><HeadlessTable rows={viewData}/></HalfPaper>
     </div>
   )
 };

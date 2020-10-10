@@ -14,7 +14,7 @@ import {sortObjects} from '../../utils/sortObjects';
 export const HeadlessTable = (props) => {
   const rows = props.rows ? props.rows :[];
   return(
-    <HalfPaper>
+  
       <Container>
       <Table >
         <TableBody>
@@ -33,15 +33,18 @@ export const HeadlessTable = (props) => {
           </TableBody>
       </Table>
       </Container>
-    </HalfPaper>
+   
   );
 }
 
 const Title = styled(TableCell)`
   margin:${props => props.theme.spacing(4)}px ${props => props.theme.spacing(2)}px 0;
   font-weight:700;
-  width:calc(240px - ${props => props.theme.spacing(2)}px * 3);　
   vertical-align:baseline;
+  width:30%;
+  @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+    width:calc(240px - ${props => props.theme.spacing(2)}px * 3);　
+  }
 `
 
 export const FixedTable = (props) => {
