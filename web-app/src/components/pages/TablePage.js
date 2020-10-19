@@ -10,6 +10,7 @@ const dummyFilters = [
   {id:'name',values:['India','Japan']}
 ];
 
+
 const TablePage = () => {
   const [filters, setFilters] = useState(dummyFilters);
   return(

@@ -1,3 +1,8 @@
+import React from 'react'
+import {SmallChip} from '../components/atoms/Chip'
+import {SmallAvatar} from '../components/atoms/Avatar'
+
+
 function createData(name, code, population, size) {
   const density = population / size;
   return { name, code, population, size, density };
@@ -49,9 +54,9 @@ export const rows = [
 
 export const viewData = [
   {title:"ほげ",value:"ふがほげほげほげほgへおげほえほgへおははははははははははははははははhgへおhごえhごえほgへおgへおhごえほほほほほほほほほほほ"},
-  {title:"ほげ",value:"ふが"},
+  {title:"ほげ",value:<SmallChip label="small chip" color="primary"/>},
   {title:"ほげ",value:"ふがほげほげほげほgへおげほえほgへおははははははははははははははははhgへおhごえhごえほgへおgへおhごえほほほほほほほほほほほ"},
-  {title:"ほげ",value:"ふが"},
+  {title:"ほげ",value:<SmallAvatar src="https://www.seojapan.com/blog/wp-content/uploads/google.png"/>},
   {title:"ほげ",value:"ふがほげほげほげほgへおげほえほgへおははははははははははははははははhgへおhごえhごえほgへおgへおhごえほほほほほほほほほほほ"},
   {title:"ほげ",value:"ふが"},
   {title:"ほげ",value:"ふがほげほげほげほgへおげほえほgへおははははははははははははははははhgへおhごえhごえほgへおgへおhごえほほほほほほほほほほほ"},

@@ -37,6 +37,16 @@ export const EditableAvatar = (props) => {
     );
 }
 
+
+export const CircledAvatar = styled(Avatar)`
+    margin:${props => props.theme.spacing(1)}px;
+`;
+
+export const SmallAvatar = styled(Avatar)`
+    width: ${props => props.theme.spacing(3)}px;
+    height: ${props => props.theme.spacing(3)}px;
+`
+
 const RowWrap = styled.div`
     display:flex;
     flex-wrap: wrap;
@@ -79,9 +89,6 @@ const Title = styled(Typography)`
     }
 `
 
-export const CircledAvatar = styled(Avatar)`
-    margin:${props => props.theme.spacing(1)}px;
-`;
 
 const RoundedAvatar = styled(Avatar)`
     margin:${props => props.theme.spacing(2)}px;
