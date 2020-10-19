@@ -37,6 +37,7 @@ export const Form = (props) => {
                 title="プロフィール写真"
                 loading={loading}
                 onClick={()=>{setLoading(!loading)}}
+                
             />
             <SingleTextInput
                 title="代表者氏名"
@@ -44,6 +45,7 @@ export const Form = (props) => {
                 required={true}
                 value={name}
                 onChange={(e)=>{setName(e.target.value)}}
+                helperText="Some important textSome important textSome important textSome important textSome important text"
             />
             <SingleTextInput
                 title="ニックネーム"

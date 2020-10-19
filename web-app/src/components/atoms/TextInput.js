@@ -8,13 +8,14 @@ export const SingleTextInput = (props) => {
     const title = props.title;
     const label = props.label;
     const value = props.value;
+    const helperText = props.helperText;
     const required = props.required? props.required : false;
     const onChange = props.onChange ? props.onChange : ()=>{}; 
     return(
         <Div>
             <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
             <Field
-               
+                helperText={helperText}
                 label={label}
                 variant="outlined"
                 value={value}
@@ -29,6 +30,7 @@ export const MultiLineTextInput = (props) => {
     const rows = props.rows ? props.rows : 5;
     const label = props.label;
     const value = props.value;
+    const helperText = props.helperText;
     const required = props.required? props.required : false;
     const onChange = props.onChange ? props.onChange : ()=>{}; 
     return(
@@ -36,6 +38,7 @@ export const MultiLineTextInput = (props) => {
             <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
             <Field
                 multiline
+                helperText={helperText}
                 rows={rows}
                 
                 label={label}
