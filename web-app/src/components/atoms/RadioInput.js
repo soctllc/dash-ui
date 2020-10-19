@@ -6,11 +6,13 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import styled from "styled-components"
 import Typography from '@material-ui/core/Typography';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 
 export const RadioInput = (props) => {
     const title = props.title;
     const label = props.label;
+    const helperText = props.helperText;
     const required = props.required? props.required : false;
     const items = props.items? props.items : [];
     const onChange = props.onChange ? props.onChange : ()=>{}; 
@@ -24,6 +26,7 @@ export const RadioInput = (props) => {
                         <FormControlLabel key={index} value={item.value} control={<Radio />} label={item.label} />
                     ))}
                 </RadioGroup>
+                <FormHelperText>{helperText}</FormHelperText>
       </StyledForm>
       </Div>
     )

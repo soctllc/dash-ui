@@ -12,6 +12,7 @@ import {EditableAvatar} from  '../atoms/Avatar';
 import {Img} from '../atoms/Img';
 
 const testImg = "https://support.apple.com/library/content/dam/edam/applecare/images/en_US/gifting/giftcardscertificates/gift-cards-app-store-itunes.png";
+const helperSample="Some important textSome important textSome important textSome important textSome important text"
 
 export const Form = (props) => {
     const [name,setName] = useState('ねーむ');
@@ -45,8 +46,7 @@ export const Form = (props) => {
                 required={true}
                 value={name}
                 onChange={(e)=>{setName(e.target.value)}}
-                helperText="Some important textSome important textSome important textSome important textSome important text"
-            />
+                helperText={helperSample}/>
             <SingleTextInput
                 title="ニックネーム"
                 label="ニックネームを入力してください"
@@ -66,6 +66,7 @@ export const Form = (props) => {
                 items={items}
                 onChange={(e)=>{setAge(e.target.value)}}
                 value={age}
+                helperText={helperSample}
             />
             <DatePicker
                 title="生年月日"
@@ -79,6 +80,7 @@ export const Form = (props) => {
                 items={methods}
                 onChange={(e)=>{setMethod(e.target.value)}}
                 value={method}
+                helperText={helperSample}
             />
             <RadioImages
                 title="画像選択"

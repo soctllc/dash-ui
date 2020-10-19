@@ -6,10 +6,13 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormLabel from '@material-ui/core/FormLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+
 
 export const CheckInput = (props) => {
     const title = props.title;
     const label = props.label;
+    const helperText = props.helperText;
     const required = props.required? props.required : false;
     const items = props.items ? props.items : [];
     const onChange = props.onChange ? props.onChange : ()=>{}; 
@@ -26,6 +29,7 @@ export const CheckInput = (props) => {
                             onChange={() => onChange(index)} />} label={item.label} />
                     ))}
             </FormGroup>
+            <FormHelperText>{helperText}</FormHelperText>
             </StyledForm>
         </Div>
     );

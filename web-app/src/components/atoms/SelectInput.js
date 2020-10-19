@@ -4,17 +4,20 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import styled from "styled-components"
 import Typography from '@material-ui/core/Typography';
+import FormHelperText from '@material-ui/core/FormHelperText';
+
 
 export const SelectInput = (props) => {
     const title = props.title;
     const value = props.value;
+    const helperText = props.helperText;
     const required = props.required? props.required : false;
     const items = props.items? props.items : [];
     const onChange = props.onChange ? props.onChange : ()=>{}; 
   return(
     <Div>
     <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
-    <FormControl variant="outlined">
+    <StyledForm variant="outlined">
     <StyledSelect
       labelId="demo-simple-select-label"
       id="demo-simple-select"
@@ -25,14 +28,22 @@ export const SelectInput = (props) => {
         <MenuItem key={index} value={item.value}>{item.label}</MenuItem>
       ))}
     </StyledSelect>
-    </FormControl>
+    <FormHelperText>{helperText}</FormHelperText>
+    </StyledForm>
   </Div>
   );
 }
 
 const StyledSelect = styled(Select)`
     margin:${props => props.theme.spacing(2)}px;
-    min-width:240px;    
+    @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+      width:240px;
+    }
+    
+`
+const StyledForm = styled(FormControl)`
+    
+    width:375px;
 `
 
 const Div = styled.div`
