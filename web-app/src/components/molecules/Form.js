@@ -10,6 +10,7 @@ import {CheckInput}from '../atoms/CheckInput';
 import {BasicButton,UploadButton} from '../atoms/Button';
 import {EditableAvatar} from  '../atoms/Avatar';
 import {Img} from '../atoms/Img';
+import {ErrorAlert} from '../atoms/Alert'
 
 const testImg = "https://support.apple.com/library/content/dam/edam/applecare/images/en_US/gifting/giftcardscertificates/gift-cards-app-store-itunes.png";
 const helperSample="Some important textSome important textSome important textSome important textSome important text"
@@ -34,6 +35,9 @@ export const Form = (props) => {
 
     return(
         <FullPaper>
+            <ErrorAlert>
+            このページの設定は、一度設定すると変更ができません。必ず注意事項をご確認の上、設定をお願い致します。ご不明点については、ご設定前にblitz運営チームまでチャットにてご相談ください。
+            </ErrorAlert>
             <EditableAvatar
                 title="プロフィール写真"
                 loading={loading}
