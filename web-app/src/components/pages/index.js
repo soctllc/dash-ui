@@ -9,6 +9,7 @@ import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import CreateIcon from '@material-ui/icons/Create';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
 //import TopPage from './TopPage'
@@ -23,6 +24,7 @@ const CalendarPage = lazy(() => import('./CalendarPage'));
 const FormPage = lazy(() => import('./FormPage'));
 const DataPage = lazy(() => import('./DataPage'));
 const CardPage = lazy(() => import('./CardPage'));
+const SettingPage = lazy(() => import('./SettingPage'));
 
 const pages = [
   { path: '/', component: <TopPage/> },
@@ -30,7 +32,8 @@ const pages = [
   { path: '/calendar', component: <CalendarPage/> },
   { path: '/form', component: <FormPage/> },
   { path: '/data', component: <DataPage/> },
-  { path: '/card', component: <CardPage/> }
+  { path: '/card', component: <CardPage/> },
+  { path: '/setting', component: <SettingPage/> }
 ];
 
 const menus = [
@@ -39,7 +42,8 @@ const menus = [
   { path: '/calendar', icon: <CalendarTodayIcon/>,text:'カレンダー'},
   { path: '/form', icon: <CreateIcon/>,text:'フォーム'},
   { path: '/data', icon: <BarChartIcon/>,text:'データ'},
-  { path: '/card', icon: <ContactMailIcon/>,text:'カード'}
+  { path: '/card', icon: <ContactMailIcon/>,text:'カード'},
+  { path: '/setting', icon: <AccountCircleIcon/>,text:'設定'}
 ]
 
 const myMenus = [
