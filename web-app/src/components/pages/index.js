@@ -25,6 +25,7 @@ const FormPage = lazy(() => import('./FormPage'));
 const DataPage = lazy(() => import('./DataPage'));
 const CardPage = lazy(() => import('./CardPage'));
 const SettingPage = lazy(() => import('./SettingPage'));
+const MyMenuPage = lazy(() => import('./MyMenuPage'));
 
 const pages = [
   { path: '/', component: <TopPage/> },
@@ -33,7 +34,8 @@ const pages = [
   { path: '/form', component: <FormPage/> },
   { path: '/data', component: <DataPage/> },
   { path: '/card', component: <CardPage/> },
-  { path: '/setting', component: <SettingPage/> }
+  { path: '/setting', component: <SettingPage/> },
+  { path: '/myMenu', component: <MyMenuPage/> },
 ];
 
 const menus = [
@@ -43,7 +45,8 @@ const menus = [
   { path: '/form', icon: <CreateIcon/>,text:'フォーム'},
   { path: '/data', icon: <BarChartIcon/>,text:'データ'},
   { path: '/card', icon: <ContactMailIcon/>,text:'カード'},
-  { path: '/setting', icon: <AccountCircleIcon/>,text:'設定'}
+  { path: '/setting', icon: <AccountCircleIcon/>,text:'設定'},
+  { path: '/myMenu', icon: <AccountCircleIcon/>,text:'マイメニュー' },
 ]
 
 const myMenus = [
