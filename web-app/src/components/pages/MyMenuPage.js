@@ -3,12 +3,13 @@ import {FullPaper} from '../atoms/Paper';
 import {PageTitle} from '../atoms/Title';
 import {BasicTabs as Tabs} from '../molecules/Tabs';
 import { MyMenuAvatar } from '../atoms/Avatar';
+import { ContentCard } from '../molecules/ContentCard';
 
 const MyMenuPage = () => {
   const contents = [
     {
       label:"タブ１",
-      content: <div>タブ１</div>
+      content: <div style={{display: 'flex'}}><ContentCard/><ContentCard/></div>
     },
     {
       label:"タブ2",
