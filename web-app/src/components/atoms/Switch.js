@@ -4,6 +4,8 @@ import styled from "styled-components"
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
 export const IOSSwitch = withStyles((theme) => ({
@@ -17,13 +19,14 @@ export const IOSSwitch = withStyles((theme) => ({
     padding: 1,
     '&$checked': {
       transform: 'translateX(16px)',
-      color: theme.palette.common.white,
+      color: theme.palette.gray.gray01,
       '& + $track': {
-        backgroundColor: '#52d869',
+        backgroundColor: theme.palette.primary.main,
         opacity: 1,
         border: 'none',
       },
     },
+    backgroundColor: '#F0F0F0',
     '&$focusVisible $thumb': {
       color: '#52d869',
       border: '6px solid #fff',
@@ -35,9 +38,10 @@ export const IOSSwitch = withStyles((theme) => ({
   },
   track: {
     borderRadius: 26 / 2,
-    border: `1px solid ${theme.palette.grey[400]}`,
-    backgroundColor: theme.palette.grey[50],
+    border: `none`,
+    backgroundColor:  theme.palette.gray.gray03,
     opacity: 1,
+    height:'auto',
     transition: theme.transitions.create(['background-color', 'border']),
   },
   checked: {},
@@ -59,7 +63,6 @@ export const IOSSwitch = withStyles((theme) => ({
   );
 });
 
-
 export const SimpleSwitch = (props) => {
     const title = props.title;
     const label = props.label;
@@ -70,7 +73,12 @@ export const SimpleSwitch = (props) => {
     return(
         <Div>
             <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
-            <IOSSwitch/>
+            <FormGroup>
+            <StyledFormControlLabel
+             control={<IOSSwitch checked={props.checkedB} onChange={props.handleChange} name="checkedB" />}
+             label="iOS style"
+            />
+            </FormGroup>
         </Div>
     );
 }
@@ -95,4 +103,11 @@ const Title = styled(Typography)`
           color:red;
         }
     }
+`
+
+const StyledFormControlLabel = styled(FormControlLabel)`
+ margin:${props => props.theme.spacing(1)}px ;
+@media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+  margin:${props => props.theme.spacing(4)}px 0;
+}
 `

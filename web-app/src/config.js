@@ -9,6 +9,9 @@ const theme = createMuiTheme({
     },
     gray: {
       gray01: `#F0F0F0`,
+      gray02: '#DADADA',
+      gray03: '#BABAB9',
+      gray04: '#7C7C7C'
 
     }
   },
