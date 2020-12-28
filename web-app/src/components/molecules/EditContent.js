@@ -1,22 +1,15 @@
 import React,{useState} from 'react';
 import {StyledFullPaper} from '../atoms/Paper'
 import {SingleTextInput,MultiLineTextInput} from '../atoms/TextInput'
-import {SelectInput}from '../atoms/SelectInput'
-import {DatePicker}from '../atoms/DatePicker'
-import {RadioInput,RadioImages}from '../atoms/RadioInput'
-import {items,methods,images} from '../../demo/selectData'
 import {checkData} from '../../demo/checkData'
-import {CheckInput}from '../atoms/CheckInput';
-import {BasicButton,UploadButton} from '../atoms/Button';
-import {EditableAvatar} from  '../atoms/Avatar';
-import {Img} from '../atoms/Img';
-import {ErrorAlert} from '../atoms/Alert'
-import {SubTitle} from '../atoms/Title'
+import {EditableThumbnail} from  '../atoms/Avatar';
+import { SimpleSwitch } from '../atoms/Switch';
+import { UploadContentButton } from './UploadContentButton';
 
 const testImg = "https://support.apple.com/library/content/dam/edam/applecare/images/en_US/gifting/giftcardscertificates/gift-cards-app-store-itunes.png";
 const helperSample="Some important textSome important textSome important textSome important textSome important text"
 
-export const ContactForm = (props) => {
+export const EditContent = (props) => {
     const [name,setName] = useState('ねーむ');
     const [date,setDate] = useState('2020/9/1');
     const [age,setAge] = useState(10);
@@ -27,15 +20,29 @@ export const ContactForm = (props) => {
     const [loading,setLoading] = useState(false);
 
     return(
-       <>
         <StyledFullPaper>
+           <UploadContentButton/>
+           <EditableThumbnail
+                title="サムネイル"
+                loading={loading}
+                onClick={()=>{setLoading(!loading)}}
+            />
+          <SimpleSwitch
+            title='公開状態'/>
             <SingleTextInput
-                title="お名前"
-                label="氏名を入力してください"
+                title="タイトル"
+                label="タイトルを入力してください"
                 required={true}
                 value={name}
                 onChange={(e)=>{setName(e.target.value)}}
                 helperText={helperSample}/>
+            <MultiLineTextInput
+                title="動画説明"
+                label="動画説明を入力してください"
+                onChange={props.onChange}
+                value={name}
+                onChange={(e)=>{setName(e.target.value)}}
+            />
              <SingleTextInput
                 title="メールアドレス"
                 label="メールアドレスを入力してください"
@@ -44,26 +51,26 @@ export const ContactForm = (props) => {
                 onChange={(e)=>{setName(e.target.value)}}
                 helperText={helperSample}/>
              <SingleTextInput
-                title="教室名"
-                label="教室名を入力してください"
+                title="販売価格（バックナンバー）"
+                label="販売価格を入力してください"
                 required={true}
                 value={name}
                 onChange={(e)=>{setName(e.target.value)}}
                 helperText={helperSample}/>
-             <DatePicker
-                title="生年月日"
-                required={true}
-                onChange={(date)=>{setDate(date)}}
-                value={date}
-              />
-            <MultiLineTextInput
-                title="お問い合わせ内容"
-                label="お問い合わせ内容を入力してください"
+              <MultiLineTextInput
+                title="追加説明"
+                label="追加説明を入力してください"
+                onChange={props.onChange}
+                value={name}
+                onChange={(e)=>{setName(e.target.value)}}
+            />
+             <MultiLineTextInput
+                title="購入特典資料説明"
+                label="購入特典資料説明を入力してください"
                 onChange={props.onChange}
                 value={name}
                 onChange={(e)=>{setName(e.target.value)}}
             />
         </StyledFullPaper>
-        </>
     );
 }
