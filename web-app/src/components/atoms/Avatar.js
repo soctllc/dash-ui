@@ -5,6 +5,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
 import {Caption} from '../atoms/Text'
+import PhotoIcon from '@material-ui/icons/Photo';
+import IconButton from '@material-ui/core/IconButton';
 
 export const NamedAvatar = (props) => {
     const name = props.name;
@@ -13,7 +15,7 @@ export const NamedAvatar = (props) => {
     const onClick = props.onClick ? props.onClick : ()=>{};
     return(
         <RowWrap>
-            <CircledAvatar src={avatar} onClick={onClick}/>  
+            <CircledAvatar src={avatar} onClick={onClick}/>
             <NameWrap>
                 <Name>{name}</Name>
                 <Caption>{caption}</Caption>
@@ -35,6 +37,22 @@ export const EditableAvatar = (props) => {
             </RoundedAvatar>
         </Div>
     );
+}
+export const EditableThumbnail = (props) => {
+  const title = props.title;
+  const avatar = props.avatar;
+  const required = props.required? props.required : false;
+  const loading = props.loading ? props.loading : false;
+  const onClick = props.onClick ? props.onClick : ()=>{};
+  return(
+      <Div>
+          <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
+          <RoundedThumnail variant="rounded" src={avatar} onClick={onClick}>
+              {loading ? <CircularProgress/> :<PhotoIcon/>}
+              {!loading && <StyledIconButton><StyledAddAPhotoIcon color='primary'/></StyledIconButton>}
+          </RoundedThumnail>
+      </Div>
+  );
 }
 
 export const MyMenuAvatar= (props) => {
@@ -151,4 +169,32 @@ const RoundedAvatar = styled(Avatar)`
         width: 120px;
         border-radius: 16px;
     }
+`;
+
+const RoundedThumnail = styled(Avatar)`
+position:relative;
+margin:${props => props.theme.spacing(2)}px;
+height: 126px;
+width: 160px;
+border-radius: 16px;
+background: ${props => props.theme.palette.gray.gray01};
+@media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+
+}
+`;
+
+const StyledIconButton = styled(IconButton)`
+background: #ffffff;
+position: absolute;
+width: 38px;
+height: 38px;
+bottom: 8px;
+right: 10px;
+background: #FFFFFF;
+box-shadow: 0px 2px 10px rgba(92, 92, 92, 0.5);
+`;
+
+const StyledAddAPhotoIcon = styled(AddAPhotoIcon)`
+width: 21.11px;
+height: 21.11px;
 `;

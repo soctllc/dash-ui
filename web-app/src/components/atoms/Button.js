@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import styled from "styled-components"
 import Typography from '@material-ui/core/Typography';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import MovieIcon from '@material-ui/icons/Movie';
 
 export const BasicButton = (props) => {
     const disabled = props.disabled ? props.disabled : false;
@@ -36,6 +37,16 @@ export const UploadButton = (props) => {
     )
 }
 
+export const UploadRoundButton = (props) => {
+  const disabled = props.disabled ? props.disabled : false;
+  const onClick = props.onClick ? props.onClick : ()=>{};
+  return(
+      <RoundButton startIcon={<MovieIcon />} variant="outlined" color="primary" disabled={disabled} onClick={onClick} >
+          {props.children}
+      </RoundButton>
+  )
+}
+
 export const IconButton = (props) => {
     const title = props.title;
     const icon = props.icon;
@@ -60,12 +71,27 @@ const StyledButton = styled(Button)`
         width:327px;
     }
 `;
-
 const UpButton = styled(StyledButton)`
     @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
         margin:${props => props.theme.spacing(4)}px ${props => props.theme.spacing(2)}px;
     }
-`
+`;
+
+const RoundButton = styled(Button)`
+width: 208px;
+height:49.2px;
+background: #FFFFFF;
+box-shadow: 0px 2px 10px rgba(92, 92, 92, 0.2);
+border-radius: 38px;
+border:none;
+font-weight: bold;
+margin-top: 105.4px;
+margin-bottom:${props => props.theme.spacing(2)}px;
+@media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+    margin-top: 188.59px;
+    margin-bottom:${props => props.theme.spacing(2.5)}px;
+}
+`;
 
 const Div = styled.div`
     display:flex;
