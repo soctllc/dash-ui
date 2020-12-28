@@ -43,6 +43,5 @@ export const StyledFlexWrap = styled.div`
   flex-wrap: wrap;
   @media screen and (max-width: ${props => props.theme.breakpoints.values.sm}px){
     padding: 0;
-    margin-left:${props => props.theme.spacing(1)}px;
   }
 `

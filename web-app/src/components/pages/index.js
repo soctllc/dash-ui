@@ -11,6 +11,8 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import ContactSupportIcon from '@material-ui/icons/ContactSupport';
+import ContactPage from './ContactPage';
 
 //import TopPage from './TopPage'
 //import TablePage from './TablePage'
@@ -36,6 +38,7 @@ const pages = [
   { path: '/card', component: <CardPage/> },
   { path: '/setting', component: <SettingPage/> },
   { path: '/myMenu', component: <MyMenuPage/> },
+  { path: '/contact', component: <ContactPage/> },
 ];
 
 const menus = [
@@ -47,6 +50,7 @@ const menus = [
   { path: '/card', icon: <ContactMailIcon/>,text:'カード'},
   { path: '/setting', icon: <AccountCircleIcon/>,text:'設定'},
   { path: '/myMenu', icon: <AccountCircleIcon/>,text:'マイメニュー' },
+  { path: 'contact',  icon: <ContactSupportIcon/>,text:'お問い合わせ' },
 ]
 
 const myMenus = [
