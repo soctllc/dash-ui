@@ -31,9 +31,9 @@ export const StyledFullPaper = styled(Paper)`
   width:calc( 100% - ${props => props.theme.spacing(3)}px * 2);
   @media screen and (max-width: ${props => props.theme.breakpoints.values.sm}px){
     padding: 0;
-    margin:${props => props.theme.spacing(1)}px;
+    margin:0;
     box-shadow: none;
-    width:calc( 100% - ${props => props.theme.spacing(1)}px * 2);
+    width:100%;
   }
 `;
 
@@ -43,6 +43,5 @@ export const StyledFlexWrap = styled.div`
   flex-wrap: wrap;
   @media screen and (max-width: ${props => props.theme.breakpoints.values.sm}px){
     padding: 0;
-    margin-left:${props => props.theme.spacing(1)}px;
   }
 `
