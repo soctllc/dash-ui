@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Typography from '@material-ui/core/Typography';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import MovieIcon from '@material-ui/icons/Movie';
+import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 
 export const BasicButton = (props) => {
     const disabled = props.disabled ? props.disabled : false;
@@ -63,6 +64,21 @@ export const IconButton = (props) => {
     )
 }
 
+export const UploadDottedButton = (props) => {
+  const disabled = props.disabled ? props.disabled : false;
+  const onClick = props.onClick ? props.onClick : ()=>{};
+  const title = props.title;
+  const required = props.required? props.required : false;
+  return(
+    <Div>
+    <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
+      <DottedButton endIcon={<PictureAsPdfIcon />} variant="outlined" color="primary" disabled={disabled} onClick={onClick} >
+          {props.children}
+      </DottedButton>
+      </Div>
+  )
+}
+
 
 const StyledButton = styled(Button)`
     width:calc(100% - ${props => props.theme.spacing(4)}px * 2);
@@ -90,6 +106,21 @@ margin-bottom:${props => props.theme.spacing(2)}px;
 @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
     margin-top: 188.59px;
     margin-bottom:${props => props.theme.spacing(2.5)}px;
+}
+`;
+
+const DottedButton = styled(Button)`
+margin:${props => props.theme.spacing(4)}px  ${props => props.theme.spacing(2)}px ;
+width: 100%;
+height: 45px;
+background: #FFFFFF;
+border: 1px dashed #CED4D4;
+box-sizing: border-box;
+border-radius: 4px;
+margin-bottom:${props => props.theme.spacing(2)}px;
+@media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+  width: 375px;
+  height: 45px;
 }
 `;
 
