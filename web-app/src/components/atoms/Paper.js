@@ -12,7 +12,7 @@ export const HalfPaper = styled(Paper)`
   margin:${props => props.theme.spacing(2)}px 0 ${props => props.theme.spacing(2)}px ${props => props.theme.spacing(2)}px;
   padding:${props => props.theme.spacing(1)}px;
   width:calc( 100% - ${props => props.theme.spacing(3)}px * 2);
-  
+
   overflow:hidden;
   @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
     width:calc( 50% - ${props => props.theme.spacing(3)}px * 2);
@@ -23,4 +23,26 @@ export const FlexWrap = styled.div`
   width:100%;
   display: flex;
   flex-wrap: wrap;
+`
+
+export const StyledFullPaper = styled(Paper)`
+  margin:${props => props.theme.spacing(2)}px;
+  padding:${props => props.theme.spacing(1)}px;
+  width:calc( 100% - ${props => props.theme.spacing(3)}px * 2);
+  @media screen and (max-width: ${props => props.theme.breakpoints.values.sm}px){
+    padding: 0;
+    margin:${props => props.theme.spacing(1)}px;
+    box-shadow: none;
+    width:calc( 100% - ${props => props.theme.spacing(1)}px * 2);
+  }
+`;
+
+export const StyledFlexWrap = styled.div`
+  width:100%;
+  display: flex;
+  flex-wrap: wrap;
+  @media screen and (max-width: ${props => props.theme.breakpoints.values.sm}px){
+    padding: 0;
+    margin-left:${props => props.theme.spacing(1)}px;
+  }
 `

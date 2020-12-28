@@ -37,6 +37,28 @@ export const EditableAvatar = (props) => {
     );
 }
 
+export const MyMenuAvatar= (props) => {
+    const title = props.title;
+    const subtitle1 = props.subtitle1;
+    const subtitle2 = props.subtitle2;
+    const avatar = props.avatar;
+    const required = props.required? props.required : false;
+    const loading = props.loading ? props.loading : false;
+    const onClick = props.onClick ? props.onClick : ()=>{};
+    return(
+        <MyMenuDiv>
+            <RoundedAvatar variant="rounded" src={avatar} onClick={onClick}>
+                {loading ? <CircularProgress/> :<AddAPhotoIcon/>}
+            </RoundedAvatar>
+            <div>
+            <Maintitle data-required={required} variant="body1" gutterBottom>{title}</Maintitle>
+            <Subtitle data-required={required} variant="body2" gutterBottom>{subtitle1}</Subtitle>
+            <Subtitle data-required={required} variant="body2" gutterBottom>{subtitle2}</Subtitle>
+            </div>
+        </MyMenuDiv>
+    );
+}
+
 
 export const CircledAvatar = styled(Avatar)`
     margin:${props => props.theme.spacing(1)}px;
@@ -74,11 +96,41 @@ const Div = styled.div`
         flex-direction:row;
     }
 `
-
 const Title = styled(Typography)`
     margin:${props => props.theme.spacing(4)}px ${props => props.theme.spacing(2)}px 0;
     font-weight:700;
     width:calc(240px - ${props => props.theme.spacing(2)}px * 3);
+    &[data-required="true"] {
+        &::after{
+          content:'*';
+          margin-left:${props => props.theme.spacing(2)}px;
+          font-size:14px;
+          color:red;
+        }
+    }
+`
+const MyMenuDiv = styled.div`
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+`
+const Maintitle= styled(Typography)`
+margin:${props => props.theme.spacing(2)}px ${props => props.theme.spacing(2)}px 0;
+font-weight:700;
+width:calc(240px - ${props => props.theme.spacing(2)}px * 4);
+&[data-required="true"] {
+    &::after{
+      content:'*';
+      margin-left:${props => props.theme.spacing(2)}px;
+      font-size:14px;
+      color:red;
+    }
+}
+`
+const Subtitle = styled(Typography)`
+    margin:${props => props.theme.spacing(1)}px ${props => props.theme.spacing(2)}px 0;
+    font-weight:700;
+    width:calc(240px - ${props => props.theme.spacing(2)}px * 4);
     &[data-required="true"] {
         &::after{
           content:'*';
