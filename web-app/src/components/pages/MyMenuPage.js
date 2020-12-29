@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyledFullPaper} from '../atoms/Paper';
 import {PageTitle} from '../atoms/Title';
-import {BasicTabs as Tabs} from '../molecules/Tabs';
+import {CustomizedTabs as Tabs} from '../molecules/Tabs';
 import { MyMenuAvatar } from '../atoms/Avatar';
 import { ContentCard } from '../molecules/ContentCard';
 import { ContentCardList } from '../molecules/ContentCardList';

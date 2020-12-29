@@ -63,7 +63,7 @@ export const ContentCard = (props) => {
 };
 
 const StyledCard = styled(Card)`
-    margin:${props => props.theme.spacing(2)}px ${props => props.theme.spacing(2)}px 0;
+    margin:${props => props.theme.spacing(2)}px ${props => props.theme.spacing(1.5)}px 0;
     width:153px;
     box-shadow: none;
     @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
@@ -113,7 +113,7 @@ const StyledCardContent = styled(CardContent)`
 `
 
 const AddCardWrap = styled.div`
-margin:${props => props.theme.spacing(2)}px ${props => props.theme.spacing(2)}px 0;
+margin:${props => props.theme.spacing(2)}px ${props => props.theme.spacing(1.5)}px 0;
 width:153px;
 text-align: center;
 height: auto;
@@ -141,7 +141,7 @@ const DivHorizontal = styled.div`
 position: absolute;
 width:100%;
 top: 17.5px;
-border: 1px solid #000000;
+border: 1px solid ${props => props.theme.palette.gray.gray03};
 @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
     width:100%;
     top: 28.5px;
@@ -150,7 +150,7 @@ border: 1px solid #000000;
 const DivVertical = styled.div`
 height: 35px;
 width:0;
-border: 1px solid #000000;
+border: 1px solid ${props => props.theme.palette.gray.gray03};
 text-align: center;
 margin: 0 auto;
 @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){

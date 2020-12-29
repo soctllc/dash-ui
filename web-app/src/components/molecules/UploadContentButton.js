@@ -43,6 +43,7 @@ color: #BABAB9;
 text-align: center;
 width: 100vw;
 height: 260px;
+margin-left: -${props => props.theme.spacing(1)}px;
 box-shadow: none;
 @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
   margin:${props => props.theme.spacing(5)}px ${props => props.theme.spacing(2)}px ${props => props.theme.spacing(2)}px;

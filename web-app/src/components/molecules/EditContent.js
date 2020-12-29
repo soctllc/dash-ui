@@ -80,6 +80,7 @@ export const EditContent = (props) => {
                 label="追加説明を入力してください"
                 onChange={props.onChange}
                 value={name}
+                complement={'購入者限定'}
                 onChange={(e)=>{setName(e.target.value)}}
             />
             <UploadDottedButton

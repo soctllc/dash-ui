@@ -188,6 +188,6 @@ margin:${props => props.theme.spacing(4)}px  ${props => props.theme.spacing(2)}p
 `
 
 const FileName = styled(Typography)`
-    font-weight:700;
+    font-weight:500;
     width:calc(240px - ${props => props.theme.spacing(2)}px * 3);
 `;

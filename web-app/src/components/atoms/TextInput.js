@@ -10,7 +10,7 @@ export const SingleTextInput = (props) => {
     const value = props.value;
     const helperText = props.helperText;
     const required = props.required? props.required : false;
-    const onChange = props.onChange ? props.onChange : ()=>{}; 
+    const onChange = props.onChange ? props.onChange : ()=>{};
     return(
         <Div>
             <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
@@ -32,7 +32,7 @@ export const MultiLineTextInput = (props) => {
     const value = props.value;
     const helperText = props.helperText;
     const required = props.required? props.required : false;
-    const onChange = props.onChange ? props.onChange : ()=>{}; 
+    const onChange = props.onChange ? props.onChange : ()=>{};
     return(
         <Div>
             <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
@@ -40,7 +40,7 @@ export const MultiLineTextInput = (props) => {
                 multiline
                 helperText={helperText}
                 rows={rows}
-                
+
                 label={label}
                 value={value}
                 variant="outlined"
@@ -56,7 +56,7 @@ const Field = styled(TextField)`
     @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
         width:375px;
     }
-    
+
 `
 
 const Div = styled.div`
@@ -78,4 +78,19 @@ const Title = styled(Typography)`
           color:red;
         }
     }
+`
+
+const ComplementTitle = styled(Typography)`
+margin:${props => props.theme.spacing(4)}px ${props => props.theme.spacing(2)}px 0;
+font-weight:700;
+color: ${props => props.theme.palette.secondary.main}
+width:calc(240px - ${props => props.theme.spacing(2)}px * 3);
+&[data-required="true"] {
+    &::after{
+      content:'*';
+      margin-left:${props => props.theme.spacing(2)}px;
+      font-size:14px;
+      color:red;
+    }
+}
 `

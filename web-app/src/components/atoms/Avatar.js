@@ -70,8 +70,8 @@ export const MyMenuAvatar= (props) => {
             </RoundedAvatar>
             <div>
             <Maintitle data-required={required} variant="body1" gutterBottom>{title}</Maintitle>
-            <Subtitle data-required={required} variant="body2" gutterBottom>{subtitle1}</Subtitle>
-            <Subtitle data-required={required} variant="body2" gutterBottom>{subtitle2}</Subtitle>
+            <Subtitle data-required={required} variant="body2" gutterBottom component='div'>{subtitle1}</Subtitle>
+            <Subtitle data-required={required} variant="body2" gutterBottom component='div'>{subtitle2}</Subtitle>
             </div>
         </MyMenuDiv>
     );
@@ -147,21 +147,18 @@ width:calc(240px - ${props => props.theme.spacing(2)}px * 4);
 `
 const Subtitle = styled(Typography)`
     margin:${props => props.theme.spacing(1)}px ${props => props.theme.spacing(2)}px 0;
-    font-weight:700;
+    font-weight:500;
     width:calc(240px - ${props => props.theme.spacing(2)}px * 4);
-    &[data-required="true"] {
-        &::after{
-          content:'*';
-          margin-left:${props => props.theme.spacing(2)}px;
-          font-size:14px;
-          color:red;
-        }
-    }
+    @media screen and (max-width: ${props => props.theme.breakpoints.values.sm}px){
+      margin:${props => props.theme.spacing(0.5)}px ${props => props.theme.spacing(2)}px 0;
+  }
 `
 
 
 const RoundedAvatar = styled(Avatar)`
     margin:${props => props.theme.spacing(2)}px;
+    background: #E1E2E5;
+    border-radius: 16px;
     height: 80px;
     width: 80px;
     @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
@@ -170,6 +167,8 @@ const RoundedAvatar = styled(Avatar)`
         border-radius: 16px;
     }
 `;
+
+
 
 const RoundedThumnail = styled(Avatar)`
 position:relative;
