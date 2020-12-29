@@ -31,9 +31,10 @@ export const EditableAvatar = (props) => {
     const onClick = props.onClick ? props.onClick : ()=>{};
     return(
         <Div>
-            <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
+            <EditableAvatarTitle data-required={required} variant="body1" gutterBottom>{title}</EditableAvatarTitle>
             <RoundedAvatar variant="rounded" src={avatar} onClick={onClick}>
-                {loading ? <CircularProgress/> :<AddAPhotoIcon/>}
+            {loading ? <CircularProgress/> :<PhotoIcon/>}
+              {!loading && <StyledIconButton><StyledAddAPhotoIcon color='primary'/></StyledIconButton>}
             </RoundedAvatar>
         </Div>
     );
@@ -127,6 +128,36 @@ const Title = styled(Typography)`
         }
     }
 `
+
+const EditableAvatarTitle = styled(Typography)`
+    @media screen and (min-width: ${(props) =>
+        props.theme.breakpoints.values.sm}px) {
+            margin:${props => props.theme.spacing(4)}px ${props => props.theme.spacing(2)}px 0;
+            font-weight:700;
+            width:calc(240px - ${props => props.theme.spacing(2)}px * 3);
+            &[data-required="true"] {
+                &::after{
+                  content:'*';
+                  margin-left:${props => props.theme.spacing(2)}px;
+                  font-size:14px;
+                  color:red;
+                }
+            }
+            color: #000;
+        }
+        margin: ${props => props.theme.spacing(2)}px auto;
+        width: 143px;
+        height: 19px;        
+        font-family: Noto Sans JP;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 19px;
+        /* identical to box height */
+        text-align: center;
+        color: #2E7DF6;
+`
+
 const MyMenuDiv = styled.div`
     display:flex;
     flex-wrap: wrap;
@@ -161,14 +192,16 @@ const Subtitle = styled(Typography)`
 
 
 const RoundedAvatar = styled(Avatar)`
-    margin:${props => props.theme.spacing(2)}px;
-    height: 80px;
-    width: 80px;
-    @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
-        height: 120px;
-        width: 120px;
-        border-radius: 16px;
-    }
+@media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+    margin: ${props => props.theme.spacing(2)}px 0;
+    height: 120px;
+    width: 120px;
+    border-radius: 16px;
+}
+    margin:${props => props.theme.spacing(2)}px auto;
+    height: 90px;
+    width: 90px;
+    border-radius: 16px;
 `;
 
 const RoundedThumnail = styled(Avatar)`

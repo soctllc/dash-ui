@@ -12,6 +12,7 @@ import {EditableAvatar} from  '../atoms/Avatar';
 import {Img} from '../atoms/Img';
 import {ErrorAlert} from '../atoms/Alert'
 import {SubTitle} from '../atoms/Title'
+import {EditableThumbnail} from  '../atoms/Avatar';
 
 const testImg = "https://support.apple.com/library/content/dam/edam/applecare/images/en_US/gifting/giftcardscertificates/gift-cards-app-store-itunes.png";
 const helperSample="Some important textSome important textSome important textSome important textSome important text"
@@ -37,10 +38,10 @@ export const Setting = (props) => {
     return(
         <FullPaper>
             <EditableAvatar
-                title="プロフィール写真"
+                title="プロフィール写真を変更"
                 loading={loading}
                 onClick={()=>{setLoading(!loading)}}
-                
+                required={true}
             />
             <SubTitle text={'公開情報'} />
             <SingleTextInput
