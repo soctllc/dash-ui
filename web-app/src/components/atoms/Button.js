@@ -213,7 +213,7 @@ box-sizing: border-box;
 border-radius: 4px;
 margin-bottom:${props => props.theme.spacing(2)}px;
 @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
-  width: 375px;
+  width: 241px;
   height: 45px;
 }
 `;

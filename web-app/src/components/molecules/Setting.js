@@ -46,13 +46,6 @@ export const Setting = (props) => {
                 required={true}
             />
             <SubTitle text={'公開情報'} />
-            {/*<SingleTextRegistration
-                title="本人確認"
-                placeholder="本人確認を行ってください"
-                //value={name}
-                required={true}
-                //onChange={(e)=>{setName(e.target.value)}}
-            />*/}
             <UploadRegistrationButton
                 title={'本人確認'}
                 onClick={() => history.push('/myMenu')}
@@ -62,9 +55,24 @@ export const Setting = (props) => {
             <SingleTextInput
                 title="ニックネーム"
                 label="ニックネームを入力してください"
+                status={'done'}
                 value={name}
                 onChange={(e) => { setName(e.target.value)}}
-            /> 
+            />
+            <SingleTextInput
+                title="ニックネーム"
+                label="ニックネームを入力してください"
+                status={'error'}
+                value={name}
+                onChange={(e) => { setName(e.target.value)}}
+            />
+            <SingleTextInput
+                title="ニックネーム"
+                label="ニックネームを入力してください"
+                status={'cancel'}
+                value={name}
+                onChange={(e) => { setName(e.target.value)}}
+            />
             <MultiLineTextInput
                 title="自己紹介"
                 label="自己紹介を入力してください"
