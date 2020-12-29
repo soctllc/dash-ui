@@ -7,15 +7,18 @@ const theme = createMuiTheme({
       dark:'#34314C',
       light: '#5891D5',
     },
+    black: {
+      textColor: '#2B2B2B',
+    },
     gray: {
       gray01: `#F0F0F0`,
       gray02: '#DADADA',
       gray03: '#BABAB9',
       gray04: '#7C7C7C'
-
     }
   },
   typography: {
+    textColor: '#2B2B2B',
     fontSize: 14,
     fontFamily: [
       'Noto Sans JP',
