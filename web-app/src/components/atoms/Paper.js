@@ -41,6 +41,7 @@ export const StyledFullPaper = styled(Paper)`
     margin:0;
     box-shadow: none;
     width:100%;
+    margin-bottom:${props => props.theme.spacing(8)}px;
   }
 `;
 
