@@ -89,7 +89,7 @@ export const DeleteContentButton = (props) => {
     <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
       <FileNameWrap>
       <FileName noWrap={true} component='div'>fileNamefileNamefileNamefileNamefileNamefileName</FileName>
-      <DeleteButton　onClick={onClick}>削除</DeleteButton>
+      <DeleteButton　onClick={onClick} disabled={disabled}>削除</DeleteButton>
       </FileNameWrap>
     </Div>
   )
