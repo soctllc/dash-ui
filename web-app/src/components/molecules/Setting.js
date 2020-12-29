@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import {FullPaper} from '../atoms/Paper'
-import {SingleTextInput,MultiLineTextInput} from '../atoms/TextInput'
+import {SingleTextInput,MultiLineTextInput,SingleTextRegistration} from '../atoms/TextInput'
 import {SelectInput}from '../atoms/SelectInput'
 import {DatePicker}from '../atoms/DatePicker'
 import {RadioInput,RadioImages}from '../atoms/RadioInput'
@@ -12,6 +12,7 @@ import {EditableAvatar} from  '../atoms/Avatar';
 import {Img} from '../atoms/Img';
 import {ErrorAlert} from '../atoms/Alert'
 import {SubTitle} from '../atoms/Title'
+import {EditableThumbnail} from  '../atoms/Avatar';
 
 const testImg = "https://support.apple.com/library/content/dam/edam/applecare/images/en_US/gifting/giftcardscertificates/gift-cards-app-store-itunes.png";
 const helperSample="Some important textSome important textSome important textSome important textSome important text"
@@ -37,19 +38,19 @@ export const Setting = (props) => {
     return(
         <FullPaper>
             <EditableAvatar
-                title="プロフィール写真"
+                title="プロフィール写真を変更"
                 loading={loading}
                 onClick={()=>{setLoading(!loading)}}
-                
+                required={true}
             />
             <SubTitle text={'公開情報'} />
-            <SingleTextInput
-                title="代表者氏名"
-                label="氏名を入力してください"
+            <SingleTextRegistration
+                title="本人確認"
+                placeholder="本人確認を行ってください"
+                //value={name}
                 required={true}
-                value={name}
-                onChange={(e)=>{setName(e.target.value)}}
-                helperText={helperSample}/>
+                //onChange={(e)=>{setName(e.target.value)}}
+            />
             <SingleTextInput
                 title="ニックネーム"
                 label="ニックネームを入力してください"
