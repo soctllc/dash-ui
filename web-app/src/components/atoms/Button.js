@@ -72,10 +72,26 @@ export const UploadDottedButton = (props) => {
   return(
     <Div>
     <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
-      <DottedButton endIcon={<StyledPictureAsPdfIcon />} variant="outlined" color="primary" disabled={disabled} onClick={onClick} >
+      <DottedButton endIcon={<PictureAsPdfIcon />} variant="outlined" color="primary" disabled={disabled} onClick={onClick} >
           {props.children}
       </DottedButton>
       </Div>
+  )
+}
+
+export const DeleteContentButton = (props) => {
+  const disabled = props.disabled ? props.disabled : false;
+  const onClick = props.onClick ? props.onClick : ()=>{};
+  const title = props.title;
+  const required = props.required? props.required : false;
+  return(
+    <Div>
+    <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
+      <FileNameWrap>
+      <FileName noWrap={true} component='div'>fileNamefileNamefileNamefileNamefileNamefileName</FileName>
+      <DeleteButton　onClick={onClick}>削除</DeleteButton>
+      </FileNameWrap>
+    </Div>
   )
 }
 
@@ -91,6 +107,15 @@ const UpButton = styled(StyledButton)`
     @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
         margin:${props => props.theme.spacing(4)}px ${props => props.theme.spacing(2)}px;
     }
+`;
+
+const DeleteButton= styled(Button)`
+width: 59px;
+height: 40px;
+background: #F4F4F4;
+border: 1px solid #CED4D4;
+box-sizing: border-box;
+border-radius: 4px;
 `;
 
 const RoundButton = styled(Button)`
@@ -152,6 +177,17 @@ const Title = styled(Typography)`
     }
 `;
 
-const StyledPictureAsPdfIcon = styled(PictureAsPdfIcon)`
+const FileNameWrap = styled.div`
+display: flex;
+justify-content: space-between;
+width:calc(100% - ${props => props.theme.spacing(2)}px * 2);
+margin:${props => props.theme.spacing(4)}px  ${props => props.theme.spacing(2)}px ${props => props.theme.spacing(2)}px ;
+@media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+    width:375px;
+}
+`
 
+const FileName = styled(Typography)`
+    font-weight:700;
+    width:calc(240px - ${props => props.theme.spacing(2)}px * 3);
 `;

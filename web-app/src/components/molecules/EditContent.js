@@ -5,7 +5,7 @@ import {publishOption, priceOption} from '../../demo/checkData'
 import {EditableThumbnail} from  '../atoms/Avatar';
 import { SimpleSwitch } from '../atoms/Switch';
 import { UploadContentButton } from './UploadContentButton';
-import { UploadDottedButton } from '../atoms/Button';
+import { UploadDottedButton, DeleteContentButton } from '../atoms/Button';
 
 const testImg = "https://support.apple.com/library/content/dam/edam/applecare/images/en_US/gifting/giftcardscertificates/gift-cards-app-store-itunes.png";
 const helperSample="Some important textSome important textSome important textSome important textSome important text"
@@ -85,6 +85,9 @@ export const EditContent = (props) => {
             <UploadDottedButton
              title={'購入限定資料'}
              >{'資料をアップロードしてください'}</UploadDottedButton>
+            <DeleteContentButton
+             title={'購入限定資料'}
+            />
              <MultiLineTextInput
                 title="購入特典資料説明"
                 label="購入特典資料説明を入力してください"
