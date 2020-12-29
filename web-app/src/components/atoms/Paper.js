@@ -25,6 +25,13 @@ export const FlexWrap = styled.div`
   flex-wrap: wrap;
 `
 
+export const FlexWrapCenter = styled.div`
+  justify-content: center;
+  width:100%;
+  display: flex;
+  flex-wrap: wrap;
+`
+
 export const StyledFullPaper = styled(Paper)`
   margin:${props => props.theme.spacing(2)}px;
   padding:${props => props.theme.spacing(1)}px;
