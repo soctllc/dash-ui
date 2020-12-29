@@ -72,7 +72,7 @@ export const UploadDottedButton = (props) => {
   return(
     <Div>
     <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
-      <DottedButton endIcon={<PictureAsPdfIcon />} variant="outlined" color="primary" disabled={disabled} onClick={onClick} >
+      <DottedButton endIcon={<StyledPictureAsPdfIcon />} variant="outlined" color="primary" disabled={disabled} onClick={onClick} >
           {props.children}
       </DottedButton>
       </Div>
@@ -111,6 +111,13 @@ margin-bottom:${props => props.theme.spacing(2)}px;
 
 const DottedButton = styled(Button)`
 margin:${props => props.theme.spacing(4)}px  ${props => props.theme.spacing(2)}px ;
+.MuiButton-endIcon {
+  position:absolute;
+  right: 12px;
+}
+.MuiButton-label {
+  justify-content: flex-start;
+}
 width: 100%;
 height: 45px;
 background: #FFFFFF;
@@ -143,4 +150,8 @@ const Title = styled(Typography)`
           color:red;
         }
     }
-`
+`;
+
+const StyledPictureAsPdfIcon = styled(PictureAsPdfIcon)`
+
+`;

@@ -38,9 +38,6 @@ export const AddContentCard = (props) => {
 
 
 export const ContentCard = (props) => {
-    const name = props.name;
-    const caption = props.caption;
-    const avatar = props.avatar;
     const icons = props.icons ? props.icons : [];
     const onClick = props.onClick ? props.onClick : ()=>{};
     const thumbUrl = props ? props.thumbUrl ? props.thumbUrl : '' : null;
