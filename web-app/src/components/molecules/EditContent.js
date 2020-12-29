@@ -5,6 +5,7 @@ import {checkData} from '../../demo/checkData'
 import {EditableThumbnail} from  '../atoms/Avatar';
 import { SimpleSwitch } from '../atoms/Switch';
 import { UploadContentButton } from './UploadContentButton';
+import { UploadDottedButton } from '../atoms/Button';
 
 const testImg = "https://support.apple.com/library/content/dam/edam/applecare/images/en_US/gifting/giftcardscertificates/gift-cards-app-store-itunes.png";
 const helperSample="Some important textSome important textSome important textSome important textSome important text"
@@ -57,6 +58,8 @@ export const EditContent = (props) => {
                 value={name}
                 onChange={(e)=>{setName(e.target.value)}}
                 helperText={helperSample}/>
+            <SimpleSwitch
+             title='動画の無料公開'/>
               <MultiLineTextInput
                 title="追加説明"
                 label="追加説明を入力してください"
@@ -64,6 +67,9 @@ export const EditContent = (props) => {
                 value={name}
                 onChange={(e)=>{setName(e.target.value)}}
             />
+            <UploadDottedButton
+             title={'購入限定資料'}
+             >{'資料をアップロードしてください'}</UploadDottedButton>
              <MultiLineTextInput
                 title="購入特典資料説明"
                 label="購入特典資料説明を入力してください"
