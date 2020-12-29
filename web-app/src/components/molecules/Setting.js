@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import {FullPaper} from '../atoms/Paper'
-import {SingleTextInput,MultiLineTextInput} from '../atoms/TextInput'
+import {SingleTextInput,MultiLineTextInput,SingleTextRegistration} from '../atoms/TextInput'
 import {SelectInput}from '../atoms/SelectInput'
 import {DatePicker}from '../atoms/DatePicker'
 import {RadioInput,RadioImages}from '../atoms/RadioInput'
@@ -44,13 +44,13 @@ export const Setting = (props) => {
                 required={true}
             />
             <SubTitle text={'公開情報'} />
-            <SingleTextInput
-                title="代表者氏名"
-                label="氏名を入力してください"
+            <SingleTextRegistration
+                title="本人確認"
+                placeholder="本人確認を行ってください"
+                //value={name}
                 required={true}
-                value={name}
-                onChange={(e)=>{setName(e.target.value)}}
-                helperText={helperSample}/>
+                //onChange={(e)=>{setName(e.target.value)}}
+            />
             <SingleTextInput
                 title="ニックネーム"
                 label="ニックネームを入力してください"

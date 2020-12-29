@@ -2,16 +2,27 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import styled from "styled-components"
 import Typography from '@material-ui/core/Typography';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import AddIcon from '@material-ui/icons/Add';
+import { Button } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { useHistory } from 'react-router-dom';
 
+const useStyles = makeStyles((theme) => ({
+    photo: {
+        cursor: 'pointer',
+        color: '#BABAB9',
+    },
+}));
 
 export const SingleTextInput = (props) => {
     const title = props.title;
     const label = props.label;
     const value = props.value;
     const helperText = props.helperText;
-    const required = props.required? props.required : false;
-    const onChange = props.onChange ? props.onChange : ()=>{}; 
-    return(
+    const required = props.required ? props.required : false;
+    const onChange = props.onChange ? props.onChange : () => { };
+    return (
         <Div>
             <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
             <Field
@@ -21,6 +32,40 @@ export const SingleTextInput = (props) => {
                 value={value}
                 onChange={onChange}
             />
+        </Div>
+    );
+}
+
+export const SingleTextRegistration = (props) => {
+    const title = props.title;
+    const value = props.value
+    const helperText = props.helperText;
+    const placeholder= props.placeholder;
+    const required = props.required ? props.required : false;
+    const onChange = props.onChange ? props.onChange : () => { };
+    const classes = useStyles();
+    const history = useHistory();
+    return (
+        <Div>
+            <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
+            <Field
+                helperText={helperText}
+                variant="outlined"
+                value={value}
+                onChange={onChange}
+                placeholder={placeholder}
+                InputProps={{
+                    readOnly: true,
+                    endAdornment:
+                        <InputAdornment position="end">
+                            <AddIcon
+                                className={classes.photo}
+                                onClick={() => history.push('/myMenu')}
+                            />
+                        </InputAdornment>,
+                }}
+            />
+
         </Div>
     );
 }
@@ -77,5 +122,17 @@ const Title = styled(Typography)`
           font-size:14px;
           color:red;
         }
+    }
+`
+
+const WrapButton = styled(Button)`
+    z-index:999;
+    background: red;
+    @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+        position: relative;
+        width:375px;
+        height: 54px;
+        background: red;
+        margin:${props => props.theme.spacing(2)}px 0;
     }
 `
