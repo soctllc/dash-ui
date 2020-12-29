@@ -108,6 +108,6 @@ const Title = styled(Typography)`
 const StyledFormControlLabel = styled(FormControlLabel)`
  margin:${props => props.theme.spacing(1)}px ;
 @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
-  margin:${props => props.theme.spacing(4)}px 0;
+  margin:${props => props.theme.spacing(4)}px ${props => props.theme.spacing(1)}px;
 }
 `

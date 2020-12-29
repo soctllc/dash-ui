@@ -22,7 +22,10 @@ export const EditContent = (props) => {
 
     return(
         <StyledFullPaper>
-           <UploadContentButton/>
+           <UploadContentButton
+              loading={true}
+              progress={40}
+           />
            <EditableThumbnail
                 title="サムネイル"
                 loading={loading}
