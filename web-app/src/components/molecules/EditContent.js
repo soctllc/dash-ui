@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import {StyledFullPaper} from '../atoms/Paper'
 import {SingleTextInput,MultiLineTextInput} from '../atoms/TextInput'
-import {checkData} from '../../demo/checkData'
+import {publishOption, priceOption} from '../../demo/checkData'
 import {EditableThumbnail} from  '../atoms/Avatar';
 import { SimpleSwitch } from '../atoms/Switch';
 import { UploadContentButton } from './UploadContentButton';
@@ -16,9 +16,13 @@ export const EditContent = (props) => {
     const [age,setAge] = useState(10);
     const [method,setMethod] = useState('自動');
     const [src,setSrc] = useState('');
-    const [checks,setChecks] = useState(checkData);
+    const [checked ,setChecked] = useState(false);
     const [disabled,setDisabled] = useState(false);
     const [loading,setLoading] = useState(false);
+    const onCheck = (data) => {
+      console.log(data)
+      setChecked(data);
+    };
 
     return(
         <StyledFullPaper>
@@ -32,7 +36,11 @@ export const EditContent = (props) => {
                 onClick={()=>{setLoading(!loading)}}
             />
           <SimpleSwitch
-            title='公開状態'/>
+            title='公開状態'
+            array={publishOption}
+            checked={checked}
+            onChange={(e)=>onCheck(e.target.checked)}
+            />
             <SingleTextInput
                 title="タイトル"
                 label="タイトルを入力してください"
@@ -62,7 +70,11 @@ export const EditContent = (props) => {
                 onChange={(e)=>{setName(e.target.value)}}
                 helperText={helperSample}/>
             <SimpleSwitch
-             title='動画の無料公開'/>
+             title='動画の無料公開'
+             array={priceOption}
+             checked={checked}
+             onChange={(e)=>onCheck(e.target.checked)}
+             />
               <MultiLineTextInput
                 title="追加説明"
                 label="追加説明を入力してください"

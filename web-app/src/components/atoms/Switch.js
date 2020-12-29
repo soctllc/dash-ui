@@ -65,18 +65,18 @@ export const IOSSwitch = withStyles((theme) => ({
 
 export const SimpleSwitch = (props) => {
     const title = props.title;
-    const label = props.label;
-    const value = props.value;
-    const helperText = props.helperText;
+    const array = props.array;
+    const checked = props.checked;
     const required = props.required? props.required : false;
     const onChange = props.onChange ? props.onChange : ()=>{};
+    const helperText = props.helperText;
     return(
         <Div>
             <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
             <FormGroup>
             <StyledFormControlLabel
-             control={<IOSSwitch checked={props.checkedB} onChange={props.handleChange} name="checkedB" />}
-             label="iOS style"
+             control={<IOSSwitch checked={props.checked} onChange={onChange} name="checkedB" />}
+             label={array ? array.find((doc)=>doc.checked === checked) ? array.find((doc)=>doc.checked === checked).label : '' : '' }
             />
             </FormGroup>
         </Div>
