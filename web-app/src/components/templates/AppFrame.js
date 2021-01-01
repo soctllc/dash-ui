@@ -6,6 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import { FooterMenu } from '../molecules/FooterMenu';
 
 const fadeIn = keyframes`
     0% {
@@ -116,6 +117,9 @@ export const AppFrame = (props) => {
       <Content>
         {props.children}
       </Content>
+      <Hidden smUp>
+        <FooterMenu/>
+      </Hidden>
     </>
   );
 }

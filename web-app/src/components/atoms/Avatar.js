@@ -66,17 +66,61 @@ export const MyMenuAvatar= (props) => {
     const onClick = props.onClick ? props.onClick : ()=>{};
     return(
         <MyMenuDiv>
-            <RoundedAvatar variant="rounded" src={avatar} onClick={onClick}>
+            <StyledRoundedAvatar variant="rounded" src={avatar} onClick={onClick}>
                 {loading ? <CircularProgress/> :<AddAPhotoIcon/>}
-            </RoundedAvatar>
+            </StyledRoundedAvatar>
             <div>
             <Maintitle data-required={required} variant="body1" gutterBottom>{title}</Maintitle>
-            <Subtitle data-required={required} variant="body2" gutterBottom>{subtitle1}</Subtitle>
-            <Subtitle data-required={required} variant="body2" gutterBottom>{subtitle2}</Subtitle>
+            <Subtitle data-required={required} variant="body2" gutterBottom component='div'>{subtitle1}</Subtitle>
+            <Subtitle data-required={required} variant="body2" gutterBottom component='div'>{subtitle2}</Subtitle>
             </div>
         </MyMenuDiv>
     );
 }
+
+export const ProviderAvatar= (props) => {
+  const title = props.title;
+  const subtitle1 = props.subtitle1;
+  const subtitle2 = props.subtitle2;
+  const avatar = props.avatar;
+  const required = props.required? props.required : false;
+  const loading = props.loading ? props.loading : false;
+  const onClick = props.onClick ? props.onClick : ()=>{};
+  return(
+      <MyMenuDiv>
+          <ProviderStyledRoundedAvatar variant="rounded" src={avatar} onClick={onClick}>
+              {loading ? <CircularProgress/> :<AddAPhotoIcon/>}
+          </ProviderStyledRoundedAvatar>
+          <div>
+          <ProviderMainTitle data-required={required} variant="body1" gutterBottom>{title}</ProviderMainTitle>
+          <ProviderSubTitle data-required={required} variant="body2" gutterBottom component='div'>{subtitle1}</ProviderSubTitle>
+          <ProviderSubTitle data-required={required} variant="body2" gutterBottom component='div'>{subtitle2}</ProviderSubTitle>
+          </div>
+      </MyMenuDiv>
+  );
+}
+export const SmallProviderAvatar= (props) => {
+  const title = props.title;
+  const subtitle1 = props.subtitle1;
+  const subtitle2 = props.subtitle2;
+  const avatar = props.avatar;
+  const required = props.required? props.required : false;
+  const loading = props.loading ? props.loading : false;
+  const onClick = props.onClick ? props.onClick : ()=>{};
+  return(
+      <MyMenuDiv>
+          <SmallProviderStyledRoundedAvatar variant="rounded" src={avatar} onClick={onClick}>
+              {loading ? <CircularProgress/> :<AddAPhotoIcon/>}
+          </SmallProviderStyledRoundedAvatar>
+          <div>
+          <ProviderMainTitle data-required={required} variant="body1" gutterBottom>{title}</ProviderMainTitle>
+          <ProviderSubTitle data-required={required} variant="body2" gutterBottom component='div'>{subtitle1}</ProviderSubTitle>
+          <ProviderSubTitle data-required={required} variant="body2" gutterBottom component='div'>{subtitle2}</ProviderSubTitle>
+          </div>
+      </MyMenuDiv>
+  );
+}
+
 
 
 export const CircledAvatar = styled(Avatar)`
@@ -147,7 +191,7 @@ const EditableAvatarTitle = styled(Typography)`
         }
         margin: ${props => props.theme.spacing(2)}px auto;
         width: 143px;
-        height: 19px;        
+        height: 19px;
         font-family: Noto Sans JP;
         font-style: normal;
         font-weight: 500;
@@ -178,16 +222,21 @@ width:calc(240px - ${props => props.theme.spacing(2)}px * 4);
 `
 const Subtitle = styled(Typography)`
     margin:${props => props.theme.spacing(1)}px ${props => props.theme.spacing(2)}px 0;
-    font-weight:700;
+    font-weight:500;
     width:calc(240px - ${props => props.theme.spacing(2)}px * 4);
-    &[data-required="true"] {
-        &::after{
-          content:'*';
-          margin-left:${props => props.theme.spacing(2)}px;
-          font-size:14px;
-          color:red;
-        }
-    }
+    @media screen and (max-width: ${props => props.theme.breakpoints.values.sm}px){
+      margin:${props => props.theme.spacing(0.5)}px ${props => props.theme.spacing(2)}px 0;
+  }
+`;
+
+const ProviderMainTitle = styled(Maintitle)`
+margin:${props => props.theme.spacing(1)}px ${props => props.theme.spacing(0.5)}px 0;
+font-size: 13px;
+`
+
+const ProviderSubTitle= styled(Subtitle)`
+margin:${props => props.theme.spacing(0.5)}px ${props => props.theme.spacing(0.5)}px 0;
+font-size: 12px;
 `
 
 
@@ -203,6 +252,41 @@ const RoundedAvatar = styled(Avatar)`
     width: 90px;
     border-radius: 16px;
 `;
+
+const StyledRoundedAvatar = styled(RoundedAvatar)`
+margin:${props => props.theme.spacing(2)}px;
+background: #E1E2E5;
+height: 80px;
+width: 80px;
+@media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+  margin: ${props => props.theme.spacing(2)}px;
+  height: 120px;
+  width: 120px;
+}
+`
+const ProviderStyledRoundedAvatar = styled(RoundedAvatar)`
+margin:${props => props.theme.spacing(2)}px;
+background: #E1E2E5;
+height: 72px;
+width: 72px;
+border-radius:50%;
+@media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+  margin: ${props => props.theme.spacing(2)}px;
+}
+`;
+
+const SmallProviderStyledRoundedAvatar = styled(RoundedAvatar)`
+margin:${props => props.theme.spacing(2)}px;
+background: #E1E2E5;
+height: 60px;
+width: 60px;
+border-radius:50%;
+@media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+  margin: ${props => props.theme.spacing(2)}px;
+}
+`;
+
+
 
 const RoundedThumnail = styled(Avatar)`
 position:relative;

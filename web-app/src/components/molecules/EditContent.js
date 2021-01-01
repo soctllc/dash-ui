@@ -37,6 +37,7 @@ export const EditContent = (props) => {
             />
           <SimpleSwitch
             title='公開状態'
+            required={true}
             array={publishOption}
             checked={checked}
             onChange={(e)=>onCheck(e.target.checked)}
@@ -80,6 +81,7 @@ export const EditContent = (props) => {
                 label="追加説明を入力してください"
                 onChange={props.onChange}
                 value={name}
+                complement={'購入者限定'}
                 onChange={(e)=>{setName(e.target.value)}}
             />
             <UploadDottedButton

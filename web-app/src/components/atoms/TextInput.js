@@ -7,6 +7,7 @@ import AddIcon from '@material-ui/icons/Add';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
+import SearchIcon from '@material-ui/icons/Search';
 import DoneIcon from '@material-ui/icons/Done';
 import ErrorIcon from '@material-ui/icons/Error';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
@@ -118,7 +119,7 @@ export const MultiLineTextInput = (props) => {
     const value = props.value;
     const helperText = props.helperText;
     const required = props.required? props.required : false;
-    const onChange = props.onChange ? props.onChange : ()=>{}; 
+    const onChange = props.onChange ? props.onChange : ()=>{};
     return(
         <Div>
             <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
@@ -126,7 +127,7 @@ export const MultiLineTextInput = (props) => {
                 multiline
                 helperText={helperText}
                 rows={rows}
-                
+
                 label={label}
                 value={value}
                 variant="outlined"
@@ -135,6 +136,36 @@ export const MultiLineTextInput = (props) => {
         </Div>
     );
 }
+
+export const SearchTextInput = (props) => {
+  const title = props.title;
+  const label = props.label;
+  const value = props.value;
+  const helperText = props.helperText;
+  const required = props.required? props.required : false;
+  const onChange = props.onChange ? props.onChange : ()=>{};
+  return(
+      <Div>
+          <RoundField
+              helperText={helperText}
+              label={label}
+              variant="outlined"
+              value={value}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment>
+                    <SearchIcon />
+                </InputAdornment>
+                )
+                }}
+              onChange={onChange}
+          />
+      </Div>
+  );
+}
+
+
+
 
 const Field = styled(TextField)`
     margin: ${props => props.theme.spacing(2)}px;
@@ -145,8 +176,19 @@ const Field = styled(TextField)`
     @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
         width: 357px;
     }
-    
-`
+`;
+
+const RoundField= styled(TextField)`
+margin:${props => props.theme.spacing(2)}px;
+width:100%;
+.MuiOutlinedInput-adornedStart{
+  border-radius:16px;
+}
+@media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+    width:375px;
+}
+`;
+
 
 const Div = styled.div`
     display:flex;
@@ -169,6 +211,20 @@ const Title = styled(Typography)`
     }
 `
 
+const ComplementTitle = styled(Typography)`
+margin:${props => props.theme.spacing(4)}px ${props => props.theme.spacing(2)}px 0;
+font-weight:700;
+color: ${props => props.theme.palette.secondary.main}
+width:calc(240px - ${props => props.theme.spacing(2)}px * 3);
+&[data-required="true"] {
+    &::after{
+      content:'*';
+      margin-left:${props => props.theme.spacing(2)}px;
+      font-size:14px;
+      color:red;
+    }
+}
+`
 const WrapButton = styled(Button)`
     z-index:999;
     background: red;

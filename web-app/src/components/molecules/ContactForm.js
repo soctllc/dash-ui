@@ -1,17 +1,8 @@
 import React,{useState} from 'react';
 import {StyledFullPaper} from '../atoms/Paper'
 import {SingleTextInput,MultiLineTextInput} from '../atoms/TextInput'
-import {SelectInput}from '../atoms/SelectInput'
 import {DatePicker}from '../atoms/DatePicker'
-import {RadioInput,RadioImages}from '../atoms/RadioInput'
-import {items,methods,images} from '../../demo/selectData'
 import {checkData} from '../../demo/checkData'
-import {CheckInput}from '../atoms/CheckInput';
-import {BasicButton,UploadButton} from '../atoms/Button';
-import {EditableAvatar} from  '../atoms/Avatar';
-import {Img} from '../atoms/Img';
-import {ErrorAlert} from '../atoms/Alert'
-import {SubTitle} from '../atoms/Title'
 
 const testImg = "https://support.apple.com/library/content/dam/edam/applecare/images/en_US/gifting/giftcardscertificates/gift-cards-app-store-itunes.png";
 const helperSample="Some important textSome important textSome important textSome important textSome important text"
@@ -19,12 +10,6 @@ const helperSample="Some important textSome important textSome important textSom
 export const ContactForm = (props) => {
     const [name,setName] = useState('ねーむ');
     const [date,setDate] = useState('2020/9/1');
-    const [age,setAge] = useState(10);
-    const [method,setMethod] = useState('自動');
-    const [src,setSrc] = useState('');
-    const [checks,setChecks] = useState(checkData);
-    const [disabled,setDisabled] = useState(false);
-    const [loading,setLoading] = useState(false);
 
     return(
        <>

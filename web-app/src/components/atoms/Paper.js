@@ -23,14 +23,14 @@ export const FlexWrap = styled.div`
   width:100%;
   display: flex;
   flex-wrap: wrap;
-`
+`;
 
 export const FlexWrapCenter = styled.div`
   justify-content: center;
   width:100%;
   display: flex;
   flex-wrap: wrap;
-`
+`;
 
 export const StyledFullPaper = styled(Paper)`
   margin:${props => props.theme.spacing(2)}px;
@@ -40,7 +40,9 @@ export const StyledFullPaper = styled(Paper)`
     padding: 0;
     margin:0;
     box-shadow: none;
-    width:100%;
+    width:calc( 100% - ${props => props.theme.spacing(1)}px * 2);
+    margin: ${props => props.theme.spacing(1)}px;
+    margin-bottom:${props => props.theme.spacing(8)}px;
   }
 `;
 
@@ -50,5 +52,17 @@ export const StyledFlexWrap = styled.div`
   flex-wrap: wrap;
   @media screen and (max-width: ${props => props.theme.breakpoints.values.sm}px){
     padding: 0;
+
   }
-`
+`;
+
+export const StyledHalfFlexWrap = styled.div`
+width: 682px;
+display: flex;
+flex-wrap: wrap;
+@media screen and (max-width: ${props => props.theme.breakpoints.values.sm}px){
+  width: 100%
+}
+`;
+
+
