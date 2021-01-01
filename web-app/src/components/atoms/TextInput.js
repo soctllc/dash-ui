@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import styled from "styled-components"
 import Typography from '@material-ui/core/Typography';
@@ -7,21 +7,36 @@ import AddIcon from '@material-ui/icons/Add';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
+import DoneIcon from '@material-ui/icons/Done';
+import ErrorIcon from '@material-ui/icons/Error';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 const useStyles = makeStyles((theme) => ({
-    photo: {
+    doneIcon: {
+        color: '#27AE60'
+    },
+    errorIcon: {
+        color: '#DC3545'
+    },
+    cancelIcon: {
         cursor: 'pointer',
-        color: '#BABAB9',
+        color: '#DADADA'
     },
 }));
 
 export const SingleTextInput = (props) => {
     const title = props.title;
     const label = props.label;
-    const value = props.value;
+    let value = props.value;
     const helperText = props.helperText;
+    const placeholder= props.placeholder;
+    const status = props.status;
     const required = props.required ? props.required : false;
     const onChange = props.onChange ? props.onChange : () => { };
+    const classes = useStyles();
+    const clearText = () => {
+        // 文字列クリアの処理
+      };
     return (
         <Div>
             <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
@@ -31,6 +46,32 @@ export const SingleTextInput = (props) => {
                 variant="outlined"
                 value={value}
                 onChange={onChange}
+                placeholder={placeholder}
+                InputProps={{
+                    endAdornment:
+                        <InputAdornment position="end">
+                            {status === 'done' ?
+                                <DoneIcon
+                                    className={classes.doneIcon}
+                                /> :
+                                status === 'error' ?
+                                    <ErrorIcon
+                                        className={classes.errorIcon}
+                                    /> :
+                                    status === 'cancel' ?
+                                        <HighlightOffIcon
+                                            className={classes.cancelIcon}
+                                            onClick={() => clearText()}
+                                        /> :
+                                        null}
+                        </InputAdornment>,
+                }}
+                InputLabelProps={{
+                    //shrink: true,
+                    style: {
+                        color: '#B0B0B0',
+                    },
+                }}
             />
         </Div>
     );
@@ -77,7 +118,7 @@ export const MultiLineTextInput = (props) => {
     const value = props.value;
     const helperText = props.helperText;
     const required = props.required? props.required : false;
-    const onChange = props.onChange ? props.onChange : ()=>{}; 
+    const onChange = props.onChange ? props.onChange : ()=>{};
     return(
         <Div>
             <Title data-required={required} variant="body1" gutterBottom>{title}</Title>
@@ -85,7 +126,7 @@ export const MultiLineTextInput = (props) => {
                 multiline
                 helperText={helperText}
                 rows={rows}
-                
+
                 label={label}
                 value={value}
                 variant="outlined"
@@ -96,12 +137,15 @@ export const MultiLineTextInput = (props) => {
 }
 
 const Field = styled(TextField)`
-    margin:${props => props.theme.spacing(2)}px;
-    width:100%;
+    margin: ${props => props.theme.spacing(2)}px;
+    width: 100%;
+    //.MuiOutlinedInput-input {
+    //    padding: 18.5px 14px;
+    //}
     @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
-        width:375px;
+        width: 357px;
     }
-    
+
 `
 
 const Div = styled.div`

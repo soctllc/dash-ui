@@ -5,6 +5,15 @@ import Typography from '@material-ui/core/Typography';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import MovieIcon from '@material-ui/icons/Movie';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
+import AddIcon from '@material-ui/icons/Add';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    photo: {
+        cursor: 'pointer',
+        color: '#BABAB9',
+    },
+}));
 
 export const BasicButton = (props) => {
     const disabled = props.disabled ? props.disabled : false;
@@ -75,8 +84,38 @@ export const UploadDottedButton = (props) => {
       <DottedButton endIcon={<PictureAsPdfIcon />} variant="outlined" color="primary" disabled={disabled} onClick={onClick} >
           {props.children}
       </DottedButton>
-      </Div>
-  )
+        </Div>
+    )
+}
+
+export const UploadRegistrationButton = (props) => {
+    const disabled = props.disabled ? props.disabled : false;
+    const onClick = props.onClick ? props.onClick : () => { };
+    const title = props.title;
+    const required = props.required ? props.required : false;
+    const classes = useStyles();
+    return (
+        <Div>
+            <Title
+                data-required={required}
+                variant="body1"
+                gutterBottom
+            >
+                {title}
+            </Title>
+            <SimpleButton
+                endIcon={<AddIcon
+                    className={classes.photo}
+                    onClick={onClick}
+                />}
+                variant="outlined" color="primary"
+                disabled={disabled}
+                onClick={onClick}
+            >
+                {props.children}
+            </SimpleButton>
+        </Div>
+    )
 }
 
 export const DeleteContentButton = (props) => {
@@ -152,6 +191,29 @@ border-radius: 4px;
 margin-bottom:${props => props.theme.spacing(2)}px;
 @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
   width: 375px;
+  height: 45px;
+}
+`;
+
+const SimpleButton = styled(Button)`
+margin:${props => props.theme.spacing(3)}px  ${props => props.theme.spacing(2)}px ;
+.MuiButton-endIcon {
+  position:absolute;
+  right: 12px;
+}
+.MuiButton-label {
+  justify-content: flex-start;
+}
+width: 100%;
+height: 45px;
+background: #FFFFFF;
+color: #B0B0B0;
+border: 1px solid #CED4D4;
+box-sizing: border-box;
+border-radius: 4px;
+margin-bottom:${props => props.theme.spacing(2)}px;
+@media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+  width: 241px;
   height: 45px;
 }
 `;
