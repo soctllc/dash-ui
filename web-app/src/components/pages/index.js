@@ -12,8 +12,10 @@ import ContactMailIcon from '@material-ui/icons/ContactMail';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
+import SearchIcon from '@material-ui/icons/Search';
 import ContactPage from './ContactPage';
 import ContentDetailPage from './ContentDetailPage';
+import ProviderPage from './ProviderPage';
 
 //import TopPage from './TopPage'
 //import TablePage from './TablePage'
@@ -29,6 +31,8 @@ const DataPage = lazy(() => import('./DataPage'));
 const CardPage = lazy(() => import('./CardPage'));
 const SettingPage = lazy(() => import('./SettingPage'));
 const MyMenuPage = lazy(() => import('./MyMenuPage'));
+const SearchPage = lazy(() => import('./SearchPage'));
+const CustomerContentDetailPage = lazy(() => import('./CustomerContentDetailPage'));
 
 const pages = [
   { path: '/', component: <TopPage/> },
@@ -41,6 +45,9 @@ const pages = [
   { path: '/myMenu', component: <MyMenuPage/> },
   { path: '/contact', component: <ContactPage/> },
   { path: '/content-detail', component: <ContentDetailPage/> },
+  { path: '/search', component: <SearchPage/> },
+  { path: '/customer-content-detail',  component: <CustomerContentDetailPage/> },
+  { path: '/provider',  component: <ProviderPage/> },
 ];
 
 const menus = [
@@ -54,6 +61,9 @@ const menus = [
   { path: '/myMenu', icon: <AccountCircleIcon/>,text:'マイメニュー' },
   { path: '/contact',  icon: <ContactSupportIcon/>,text:'お問い合わせ' },
   { path: '/content-detail',  icon: <ContactSupportIcon/>,text:'コンテンツ詳細' },
+  { path: '/search',  icon: <SearchIcon/>,text:'検索' },
+  { path: '/customer-content-detail',  icon: <ContactSupportIcon/>,text:'コンテンツ詳細' },
+  { path: '/provider',  icon: <AccountCircleIcon/>,text:'プロバイダー' },
 ]
 
 const myMenus = [

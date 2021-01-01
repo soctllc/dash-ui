@@ -37,6 +37,7 @@ export const EditContent = (props) => {
             />
           <SimpleSwitch
             title='公開状態'
+            required={true}
             array={publishOption}
             checked={checked}
             onChange={(e)=>onCheck(e.target.checked)}

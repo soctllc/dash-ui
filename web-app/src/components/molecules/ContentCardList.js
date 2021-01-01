@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import {StyledFlexWrap} from '../atoms/Paper';
-import { ContentCard, AddContentCard } from './ContentCard';
+import { ContentCard, AddContentCard, FlatContentCard } from './ContentCard';
 
 export const ContentCardList = (props) =>{
   return(
@@ -8,8 +8,8 @@ export const ContentCardList = (props) =>{
       <AddContentCard/>
       <ContentCard/>
       <ContentCard/>
-      <ContentCard/>
-      <ContentCard/>
+      <FlatContentCard/>
+      <FlatContentCard/>
       <ContentCard/>
       <ContentCard/>
     </StyledFlexWrap>

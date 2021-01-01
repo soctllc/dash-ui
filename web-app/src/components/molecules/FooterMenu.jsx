@@ -17,10 +17,10 @@ export const FooterMenu = (props) =>{
       }}
       showLabels
     >
-      <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-      <BottomNavigationAction label="Like" icon={<RestoreIcon />} />
-      <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-      <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+      <StyledBottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+      <StyledBottomNavigationAction label="Like" icon={<RestoreIcon />} />
+      <StyledBottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+      <StyledBottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
     </StyledBottomNavigation>
   )
 }
@@ -32,4 +32,15 @@ paddingBottom: env(safe-area-inset-bottom);
 position: fixed;
 z-index: 68;
 bottom: 0;
+touch-action: none
+`;
+
+const  StyledBottomNavigationAction = styled(BottomNavigationAction)`
+font-weight: 700;
+touch-action: none;
+&:action {
+  background-color: #00B900;
+  opacity: 0.7;
+
+}
 `

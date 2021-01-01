@@ -7,6 +7,7 @@ import AddIcon from '@material-ui/icons/Add';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
+import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles((theme) => ({
     photo: {
@@ -95,14 +96,54 @@ export const MultiLineTextInput = (props) => {
     );
 }
 
+export const SearchTextInput = (props) => {
+  const title = props.title;
+  const label = props.label;
+  const value = props.value;
+  const helperText = props.helperText;
+  const required = props.required? props.required : false;
+  const onChange = props.onChange ? props.onChange : ()=>{};
+  return(
+      <Div>
+          <RoundField
+              helperText={helperText}
+              label={label}
+              variant="outlined"
+              value={value}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment>
+                    <SearchIcon />
+                </InputAdornment>
+                )
+                }}
+              onChange={onChange}
+          />
+      </Div>
+  );
+}
+
+
+
+
 const Field = styled(TextField)`
     margin:${props => props.theme.spacing(2)}px;
     width:100%;
     @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
         width:375px;
     }
+`;
 
-`
+const RoundField= styled(TextField)`
+margin:${props => props.theme.spacing(2)}px;
+width:100%;
+.MuiOutlinedInput-adornedStart{
+  border-radius:16px;
+}
+@media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+    width:375px;
+}
+`;
 
 const Div = styled.div`
     display:flex;

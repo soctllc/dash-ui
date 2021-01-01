@@ -23,14 +23,14 @@ export const FlexWrap = styled.div`
   width:100%;
   display: flex;
   flex-wrap: wrap;
-`
+`;
 
 export const FlexWrapCenter = styled.div`
   justify-content: center;
   width:100%;
   display: flex;
   flex-wrap: wrap;
-`
+`;
 
 export const StyledFullPaper = styled(Paper)`
   margin:${props => props.theme.spacing(2)}px;
@@ -54,4 +54,15 @@ export const StyledFlexWrap = styled.div`
     padding: 0;
 
   }
-`
+`;
+
+export const StyledHalfFlexWrap = styled.div`
+width: 682px;
+display: flex;
+flex-wrap: wrap;
+@media screen and (max-width: ${props => props.theme.breakpoints.values.sm}px){
+  width: 100%
+}
+`;
+
+

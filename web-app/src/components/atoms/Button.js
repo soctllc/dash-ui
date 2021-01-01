@@ -5,6 +5,8 @@ import Typography from '@material-ui/core/Typography';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import MovieIcon from '@material-ui/icons/Movie';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
+import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
+import Fab from '@material-ui/core/Fab';
 
 export const BasicButton = (props) => {
     const disabled = props.disabled ? props.disabled : false;
@@ -92,6 +94,33 @@ export const DeleteContentButton = (props) => {
       <DeleteButton　onClick={onClick} disabled={disabled}>削除</DeleteButton>
       </FileNameWrap>
     </Div>
+  )
+}
+
+export const FollowButton = (props) =>{
+  const value = props.value ? props.value : false;
+  const onClick = props.onClick ? props.onClick : ()=>{};
+  return (
+      <StyledFollowedButton
+      onClick={onClick}
+      variant ={value ? 'outlined' : 'contained'}
+      color ={'secondary'}
+      >{!value ? 'フォロー' : 'フォロー中'}
+     </StyledFollowedButton>
+  )
+}
+
+export const LikeButton = (props) =>{
+  const value = props.value ? props.value : false;
+  const onClick = props.onClick ? props.onClick : ()=>{};
+  return (
+      <StyledRoundIcon
+      onClick={onClick}
+      variant ={'outlined'}
+      color ={value ? 'secondary' : 'default'}
+      value={value}
+      ><ThumbUpAltOutlinedIcon/>
+     </StyledRoundIcon>
   )
 }
 
@@ -191,3 +220,18 @@ const FileName = styled(Typography)`
     font-weight:500;
     width:calc(240px - ${props => props.theme.spacing(2)}px * 3);
 `;
+
+const StyledFollowedButton = styled(Button)`
+width: 103px;
+height: 30px;
+box-sizing: border-box;
+border-radius: 40px;
+z-index:9999;
+}
+`;
+
+const StyledRoundIcon =  styled(Button)`
+height: 34px;
+border-radius: 38px;
+
+`
