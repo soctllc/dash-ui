@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyledFullPaper, StyledHalfFlexWrap} from '../atoms/Paper'
-import {BodyTitle,BodyText,Caption} from '../atoms/Text';
+import {BodyText} from '../atoms/Text';
 import { ProviderCard } from '../molecules/ProviderCard';
 import { ContentCardList } from '../molecules/ContentCardList';
 import {BasicTabs as Tabs} from '../molecules/Tabs';

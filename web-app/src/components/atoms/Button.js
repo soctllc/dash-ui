@@ -5,10 +5,8 @@ import Typography from '@material-ui/core/Typography';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import MovieIcon from '@material-ui/icons/Movie';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
-<<<<<<< HEAD
 import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
 import Fab from '@material-ui/core/Fab';
-=======
 import AddIcon from '@material-ui/icons/Add';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -18,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
         color: '#BABAB9',
     },
 }));
->>>>>>> master
 
 export const BasicButton = (props) => {
     const disabled = props.disabled ? props.disabled : false;

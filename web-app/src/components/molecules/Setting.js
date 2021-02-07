@@ -46,14 +46,6 @@ export const Setting = (props) => {
                 required={true}
             />
             <SubTitle text={'公開情報'} />
-<<<<<<< HEAD
-            <SingleTextRegistration
-                title="本人確認"
-                placeholder="本人確認を行ってください"
-                //value={name}
-                required={true}
-                //onChange={(e)=>{setName(e.target.value)}}
-=======
             <UploadRegistrationButton
                 title={'本人確認'}
                 onClick={() => history.push('/myMenu')}
@@ -66,7 +58,6 @@ export const Setting = (props) => {
                 status={'done'}
                 value={name}
                 onChange={(e) => { setName(e.target.value)}}
->>>>>>> aee513df486131daac9e7601b9a4e7b78ade2ee7
             />
             <SingleTextInput
                 title="ニックネーム"
