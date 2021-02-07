@@ -11,5 +11,4 @@ export const BasicChip = styled(Chip).attrs({
   variant:"outlined",
 })`
 margin: ${props => props.theme.spacing(0.5)}px;
-
-`
+`;
