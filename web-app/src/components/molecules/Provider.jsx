@@ -6,6 +6,7 @@ import { ContentCardList } from '../molecules/ContentCardList';
 import {BasicTabs as Tabs} from '../molecules/Tabs';
 import { ProviderList } from './ProviderList';
 import { LikeList } from './LikeList'
+import CouponList from './CouponList';
 
 const sampleText = "向背の考えない方はよく当時が向後たました。とにかく久原さんを就職自我どう干渉としで他その書物私か妨害をというご観念ありますなくですから、その将来は私か世の中個性より引きて、槙さんの事に女の私のようやくご経過と思わてそれ弟にご融和にするようによくお説明を来らでしょですて、もしもし安心に祟っないて行くだのに行っですた。"
 
@@ -23,7 +24,10 @@ export const Provider = (props) => {
       label:"Like",
       content: <LikeList/>
     },
-
+    {
+      label:"Coupon",
+      content: <CouponList/>
+    },
   ]
 
     return(

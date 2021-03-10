@@ -121,6 +121,26 @@ export const SmallProviderAvatar= (props) => {
   );
 }
 
+export const CouponAvatar= (props) => {
+  const title = props.title;
+  const subtitle1 = props.subtitle1;
+  const subtitle2 = props.subtitle2;
+  const avatar = props.avatar;
+  const required = props.required? props.required : false;
+  const loading = props.loading ? props.loading : false;
+  const onClick = props.onClick ? props.onClick : ()=>{};
+  return(
+      <Div>
+          <CouponRoundAvatar variant="rounded" src={avatar} >
+              {loading ? <CircularProgress/> :<AddAPhotoIcon/>}
+          </CouponRoundAvatar>
+          <div>
+          <ProviderMainTitle data-required={required} variant="body1" gutterBottom>{title}</ProviderMainTitle>
+        </div>
+      </Div>
+  );
+}
+
 
 
 export const CircledAvatar = styled(Avatar)`
@@ -286,6 +306,17 @@ border-radius:50%;
 }
 `;
 
+const CouponRoundAvatar = styled(RoundedAvatar)`
+margin:${props => props.theme.spacing(1)}px ${props => props.theme.spacing(2)}px;
+background: #E1E2E5;
+height: 30px;
+width: 30px;
+border-radius:50%;
+@media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+  margin:${props => props.theme.spacing(1)}px ${props => props.theme.spacing(2)}px;
+}
+`;
+
 
 
 const RoundedThumnail = styled(Avatar)`
@@ -315,3 +346,4 @@ const StyledAddAPhotoIcon = styled(AddAPhotoIcon)`
 width: 21.11px;
 height: 21.11px;
 `;
+
