@@ -171,11 +171,8 @@ export const AvatarText = (props) => {
   const helperText = props.helperText;
   const placeholder= props.placeholder;
   const avatar = props.avatar;
-  const required = props.required ? props.required : false;
   const onChange = props.onChange ? props.onChange : () => { };
-  const classes = useStyles();
-  const history = useHistory();
-  const onFocus = () => {
+  const onFocus=()=>{
     setOnFocusing(true);
   };
   const onBlur =() =>{
@@ -270,7 +267,6 @@ const Div = styled.div`
 const StyledDiv = styled(Div)`
 align-items: flex-start;
 width: 100%;
-
 `;
 
 const Title = styled(Typography)`
