@@ -11,6 +11,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import DoneIcon from '@material-ui/icons/Done';
 import ErrorIcon from '@material-ui/icons/Error';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles((theme) => ({
     doneIcon: {
@@ -164,12 +165,58 @@ export const SearchTextInput = (props) => {
   );
 }
 
+export const AvatarText = (props) => {
+  const [onfocusing, setOnFocusing] = useState(false);
+  const value = props.value
+  const helperText = props.helperText;
+  const placeholder= props.placeholder;
+  const avatar = props.avatar;
+  const required = props.required ? props.required : false;
+  const onChange = props.onChange ? props.onChange : () => { };
+  const classes = useStyles();
+  const history = useHistory();
+  const onFocus = () => {
+    setOnFocusing(true);
+  };
+  const onBlur =() =>{
+    setOnFocusing(false);
+  }
+  return (
+      <Wrap>
+      <Line/>
+      <StyledDiv>
+          <div>
+          <CircledAvatar src={avatar}/>
+          </div>
+          <StyledRoundField
+              onFocus={onFocus}
+              onBlur={onBlur}
+              helperText={helperText}
+              multiline
+              variant="outlined"
+              value={value}
+              onChange={onChange}
+              placeholder={placeholder}
+              InputProps={{
+                endAdornment: onfocusing &&<Save>保存</Save>
+              }}
+          />
+      </StyledDiv>
+      <Line/>
+      </Wrap>
+  );
+}
 
+
+
+export const CircledAvatar = styled(Avatar)`
+    margin:${props => props.theme.spacing(2)}px ${props => props.theme.spacing(1)}px  ${props => props.theme.spacing(1)}px ${props => props.theme.spacing(1)}px;
+`;
 
 
 const Field = styled(TextField)`
     margin: ${props => props.theme.spacing(2)}px;
-    width: 100%;
+    flex:1;
     //.MuiOutlinedInput-input {
     //    padding: 18.5px 14px;
     //}
@@ -190,12 +237,39 @@ width:100%;
 `;
 
 
+
+const StyledRoundField= styled(TextField)`
+margin:${props => props.theme.spacing(2)}px;
+flex:1;
+marign-left: ${props => props.theme.spacing(1.5)}px;
+margin-right: ${props => props.theme.spacing(2)}px;
+.MuiOutlinedInput-root {
+  border-radius:32px;
+}
+.MuiOutlinedInput-multiline {
+  padding: 0;
+}
+.MuiOutlinedInput-input {
+  padding: 11.5px 17px 12px 17px;
+  width: calc(100% - 85px);
+}
+@media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
+
+}
+`;
+
+
 const Div = styled.div`
     display:flex;
     flex-wrap: wrap;
     @media screen and (min-width: ${props => props.theme.breakpoints.values.sm}px){
     }
 `
+const StyledDiv = styled(Div)`
+align-items: flex-start;
+width: 100%;
+
+`;
 
 const Title = styled(Typography)`
     margin:${props => props.theme.spacing(4)}px ${props => props.theme.spacing(2)}px 0;
@@ -235,4 +309,22 @@ const WrapButton = styled(Button)`
         background: red;
         margin:${props => props.theme.spacing(2)}px 0;
     }
-`
+`;
+const Save = styled.div`
+    color:#2E7DF6;
+    font-weight: bold;
+    position: absolute;
+    right: 16px;
+    bottom: 15px;
+`;
+
+const Wrap = styled.div`
+width: 100%;
+`;
+
+const Line = styled.div`
+width: 100vw;
+height: 1px;
+background: #DDDDDD;
+margin-left: -${props => props.theme.spacing(1)}px
+`;
