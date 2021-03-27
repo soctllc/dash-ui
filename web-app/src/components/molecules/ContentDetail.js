@@ -6,6 +6,7 @@ import { SmallProviderCard } from './ProviderCard';
 import { LikeButton } from '../atoms/Button';
 import styled from 'styled-components';
 import { AvatarText } from '../atoms/TextInput'
+import { Comment } from '../atoms/Text';
 
 const testImg = "https://support.apple.com/library/content/dam/edam/applecare/images/en_US/gifting/giftcardscertificates/gift-cards-app-store-itunes.png";
 const helperSample="Some important textSome important textSome important textSome important textSome important text"
@@ -36,6 +37,9 @@ export const ContentDetail = (props) => {
           <BodyText>{sampleText}</BodyText>
           <BodyText>{sampleText}</BodyText>
           <AvatarText/>
+          <Comment/>
+          <Comment/>
+          <Comment/>
           <SmallProviderCard/>
           </StyledHalfFlexWrap>
         </StyledFullPaper>

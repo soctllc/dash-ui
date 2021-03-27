@@ -210,7 +210,9 @@ export const AvatarText = (props) => {
 
 
 export const CircledAvatar = styled(Avatar)`
-    margin:${props => props.theme.spacing(2)}px ${props => props.theme.spacing(1)}px  ${props => props.theme.spacing(1)}px ${props => props.theme.spacing(1)}px;
+  width: 40px;
+  height: 40px;
+  margin:${props => props.theme.spacing(2)}px ${props => props.theme.spacing(1)}px  ${props => props.theme.spacing(1)}px ${props => props.theme.spacing(1)}px;
 `;
 
 
@@ -323,8 +325,7 @@ width: 100%;
 `;
 
 const Line = styled.div`
-width: 100vw;
+width: 100%;
 height: 1px;
 background: #DDDDDD;
-margin-left: -${props => props.theme.spacing(1)}px
 `;
