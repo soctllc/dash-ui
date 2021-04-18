@@ -16,6 +16,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import ContactPage from './ContactPage';
 import ContentDetailPage from './ContentDetailPage';
 import ProviderPage from './ProviderPage';
+import CameraPage from './CameraPage';
 
 //import TopPage from './TopPage'
 //import TablePage from './TablePage'
@@ -48,6 +49,7 @@ const pages = [
   { path: '/search', component: <SearchPage/> },
   { path: '/customer-content-detail',  component: <CustomerContentDetailPage/> },
   { path: '/provider',  component: <ProviderPage/> },
+  { path: '/camera',  component: <CameraPage/> },
 ];
 
 const menus = [
@@ -64,6 +66,7 @@ const menus = [
   { path: '/search',  icon: <SearchIcon/>,text:'検索' },
   { path: '/customer-content-detail',  icon: <ContactSupportIcon/>,text:'コンテンツ詳細' },
   { path: '/provider',  icon: <AccountCircleIcon/>,text:'プロバイダー' },
+  { path: '/camera',  icon: <AccountCircleIcon/>,text:'カメラ' },
 ]
 
 const myMenus = [
